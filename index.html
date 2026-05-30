@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hemanth's Portfolio | DevOps Engineer</title>
-    <!-- Included Caveat for cursive logo, Outfit for modern text -->
+    <!-- Caveat for cursive logo, Outfit for modern text -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -21,15 +21,13 @@
     <!-- Frosted Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- New Glowing Cursive Logo -->
             <div class="logo">BHK<span>.</span></div>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <!-- Fixed Download Link -->
-                <li><a href="HemanthKumarReddy_Devops_2.pdf" download="Bellam_Hemanth_Kumar_Reddy_Resume.pdf" class="btn-nav"><i class="fas fa-download"></i> Resume</a></li>
+                <li><a href="HemanthKumarReddy_Devops_3.pdf" download="Bellam_Hemanth_Kumar_Reddy_Resume.pdf" class="btn-nav"><i class="fas fa-download"></i> Resume</a></li>
             </ul>
         </div>
     </nav>
@@ -38,7 +36,7 @@
     <section id="home" class="hero section-padding">
         
         <!-- Left: Glassmorphism Profile Panel -->
-        <div class="hero-content glass-panel" data-tilt>
+        <div class="hero-content glass-panel">
             <p class="greeting">Hello World, I'm</p>
             <h1 class="name">Bellam Hemanth<br><span class="text-gradient">Kumar Reddy</span></h1><!--[cite: 3]-->
             <h2 class="dynamic-role">I am a <span class="typewriter"></span><span class="cursor">|</span></h2>
@@ -48,7 +46,6 @@
             </p>
 
             <div class="social-tray">
-                <!-- Redirecting Social Links -->
                 <a href="https://linkedin.com/in/hemanthkumarb651" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a><!--[cite: 3]-->
                 <a href="mailto:hemanthkumarb651@gmail.com" class="social-icon mail"><i class="fas fa-envelope"></i></a><!--[cite: 3]-->
                 <a href="https://github.com/" target="_blank" class="social-icon github"><i class="fab fa-github"></i></a>
@@ -67,10 +64,12 @@
                 
                 <!-- Center Profile Display -->
                 <div class="profile-center">
+                    
                     <!-- Default Profile Pic State -->
                     <div class="profile-image-state">
                         <img src="https://via.placeholder.com/400x400/1e293b/ffffff?text=Your+Photo" alt="Hemanth Profile">
                     </div>
+                    
                     <!-- Hidden Info State (Reveals on Icon Click) -->
                     <div class="profile-info-state glass-panel hidden">
                         <button class="close-info"><i class="fas fa-times"></i></button>
@@ -81,15 +80,25 @@
                 
                 <!-- Rotating Orbit Ring -->
                 <div class="orbit-ring">
-                    <!-- Icons are now clickable buttons -->
-                    <button class="orbit-node aws" data-tech="aws"><div class="counter-rotate"><i class="fab fa-aws"></i></div></button>
-                    <button class="orbit-node docker" data-tech="docker"><div class="counter-rotate"><i class="fab fa-docker"></i></div></button>
-                    <button class="orbit-node python" data-tech="python"><div class="counter-rotate"><i class="fab fa-python"></i></div></button>
-                    <button class="orbit-node linux" data-tech="linux"><div class="counter-rotate"><i class="fab fa-linux"></i></div></button>
-                    <button class="orbit-node k8s" data-tech="k8s"><div class="counter-rotate"><i class="fas fa-dharmachakra"></i></div></button>
+                    <!-- Icons are fully clickable buttons -->
+                    <button class="orbit-node aws" data-tech="aws">
+                        <div class="counter-rotate"><i class="fab fa-aws pointer-none"></i></div>
+                    </button>
+                    <button class="orbit-node docker" data-tech="docker">
+                        <div class="counter-rotate"><i class="fab fa-docker pointer-none"></i></div>
+                    </button>
+                    <button class="orbit-node python" data-tech="python">
+                        <div class="counter-rotate"><i class="fab fa-python pointer-none"></i></div>
+                    </button>
+                    <button class="orbit-node linux" data-tech="linux">
+                        <div class="counter-rotate"><i class="fab fa-linux pointer-none"></i></div>
+                    </button>
+                    <button class="orbit-node k8s" data-tech="k8s">
+                        <div class="counter-rotate"><i class="fas fa-dharmachakra pointer-none"></i></div>
+                    </button>
                 </div>
                 
-                <p class="orbit-hint"><i class="fas fa-hand-pointer"></i> Click icons for details</p>
+                <p class="orbit-hint"><i class="fas fa-mouse-pointer"></i> Hover to pause, Click to view</p>
             </div>
         </div>
     </section>

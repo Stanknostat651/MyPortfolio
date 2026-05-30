@@ -25,27 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(typeEffect, 1000);
 
     /* --- 2. Interactive Orbit Icons Logic --- */
-    // Resume data mapped to icons[cite: 3]
+    // Detailed data mapped directly from your resume
     const orbitData = {
         aws: {
             title: "Cloud & AWS",
-            content: "<ul><li>AWS (EC2, EKS, S3, VPC)[cite: 3].</li><li>Provisioned AWS infrastructure using Terraform[cite: 3].</li><li>AWS Cloud Practitioner[cite: 3].</li></ul>"
+            content: "<ul><li>Provisioned AWS infrastructure (VPC, EKS, EC2, S3, IAM, Route53).</li><li>AWS Certified Cloud Practitioner.</li></ul>"
         },
         docker: {
             title: "Containers",
-            content: "<ul><li>Docker, Kubernetes, EKS[cite: 3].</li><li>Containerized workloads with Docker/K8s[cite: 3].</li></ul>"
+            content: "<ul><li>Containerized workloads with Docker.</li><li>Hardened Docker images (non-root, read-only FS).</li></ul>"
         },
         python: {
             title: "AI & Scripting",
-            content: "<ul><li>Python, Bash, Shell[cite: 3].</li><li>LLM Agents, Model Context Protocol (MCP)[cite: 3].</li></ul>"
+            content: "<ul><li>Built AI-integrated automation platforms using LLM agents and MCP.</li><li>Scripting in Python, Bash, Shell.</li></ul>"
         },
         linux: {
             title: "Security & OS",
-            content: "<ul><li>RHEL, Linux[cite: 3].</li><li>Red Hat Certified System Administrator[cite: 3].</li><li>DevSecOps, Container Hardening[cite: 3].</li></ul>"
+            content: "<ul><li>Red Hat Certified System Administrator (RHCSA).</li><li>Integrated DevSecOps practices and security scanning.</li></ul>"
         },
         k8s: {
             title: "Kubernetes & CI/CD",
-            content: "<ul><li>Managed 6+ Kubernetes environments[cite: 3].</li><li>GitOps workflows with ArgoCD[cite: 3].</li></ul>"
+            content: "<ul><li>Managed 6+ enterprise Kubernetes environments.</li><li>Deployed GitOps workflows with ArgoCD.</li></ul>"
         }
     };
 
@@ -56,11 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const orbitContent = document.getElementById('orbit-content');
     const closeInfoBtn = document.querySelector('.close-info');
 
-    // Handle clicks on orbiting icons
+    // Handle clicks on orbiting buttons
     orbitButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
+        button.addEventListener('click', function(e) {
             e.preventDefault();
-            const tech = button.getAttribute('data-tech');
+            // Forcefully get the data-tech from the button itself
+            const tech = this.getAttribute('data-tech');
             const data = orbitData[tech];
 
             if (data) {
@@ -81,16 +82,22 @@ document.addEventListener('DOMContentLoaded', () => {
         profileImageState.classList.remove('hidden');
     });
 
-    /* --- 3. Scroll Reveal Animation --- */
+    /* --- 3. Bulletproof Scroll Reveal Animation --- */
     const revealElements = document.querySelectorAll('.reveal');
-    const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+    
+    // First, hide all elements so they can fade in
+    revealElements.forEach(el => el.classList.add('is-hidden'));
+
+    const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
-            entry.target.classList.add('active');
+            // Remove the hidden class to trigger the CSS transition
+            entry.target.classList.remove('is-hidden');
             observer.unobserve(entry.target);
         });
     }, revealOptions);
+    
     revealElements.forEach(el => revealOnScroll.observe(el));
 
     /* --- 4. Smooth Scrolling & Navbar Active State --- */
