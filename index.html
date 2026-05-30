@@ -3,84 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumara Subramanyam Reddy Byreddy | DevOps Portfolio</title>
+    <title>Bellam Hemanth Kumar Reddy | DevOps & SRE Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
     <nav>
-        <h1>KSRB.</h1>
-        <div>
+        <div class="nav-logo">BHKR<span>.</span></div>
+        <div class="nav-links">
             <a href="#about">About</a>
+            <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
         </div>
     </nav>
 
-    <section class="hero">
-        <h2>Hi, my name is</h2>
-        <h1>Kumara Subramanyam Reddy Byreddy.</h1>
-        <h1>I build resilient cloud infrastructures.</h1>
-        <p>I'm a DevOps & SRE Engineer based in Bengaluru, specializing in Kubernetes, AWS, and DevSecOps. I leverage AIOps and IaC to reduce deployment times and improve system reliability.</p>
-        <div class="contact-info" style="margin-bottom: 2rem; color: var(--text-muted);">
-            <p>📧 subbubyreddy@gmail.com | 📞 +91 9177961543 | 🔗 <a href="#" style="color: var(--primary);">LinkedIn</a></p>
-        </div>
-        <a href="#projects" class="btn">View My Work</a>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title">Technical Arsenal</h2>
-        <div class="skills-container">
-            <span class="skill-tag">AWS (EC2, EKS, S3)</span>
-            <span class="skill-tag">Azure</span>
-            <span class="skill-tag">Kubernetes & EKS</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Terraform</span>
-            <span class="skill-tag">Ansible</span>
-            <span class="skill-tag">Jenkins & GitHub Actions</span>
-            <span class="skill-tag">ArgoCD & GitOps</span>
-            <span class="skill-tag">Prometheus & Grafana</span>
-            <span class="skill-tag">Python & Bash</span>
-            <span class="skill-tag">LLM Agents & AIOps</span>
-            <span class="skill-tag">DevSecOps</span>
-        </div>
-    </section>
-
-    <section id="experience">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="card" style="cursor: default;">
-            <h3>DevOps Engineer @ Accenture</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">February 2024 - Present</p>
-            <ul>
-                <li style="margin-left: 1.5rem;">Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability.</li>
-                <li style="margin-left: 1.5rem;">Automated provisioning with Ansible and Terraform, reducing patching time by 75%.</li>
-                <li style="margin-left: 1.5rem;">Optimized CI/CD pipelines, accelerating deployments by 50%+.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2 class="section-title">Key Projects</h2>
-        <p style="margin-bottom: 2rem; color: var(--accent);">* Click cards to expand details</p>
+    <section class="hero reveal">
+        <p class="greeting">Hello, I am</p>
+        <h1>Bellam Hemanth Kumar Reddy</h1>
+        <h2 class="typing-container">I specialize in <span id="typing-text"></span><span class="cursor">|</span></h2>
         
-        <div class="card-grid">
-            <div class="card" onclick="openModal('Jira MCP Server on Kubernetes', 'Architected a production-grade AI integration platform using the Model Context Protocol (MCP). Enabled LLM agents (GitHub Copilot) to perform Jira operations via natural language across 22 automated tools. Implemented multi-user PAT authentication and hardened Docker images.')">
+        <p class="hero-summary">
+            DevOps / SRE Engineer with hands-on experience in Site Reliability Engineering, DevSecOps, AIOps, and cloud infrastructure. Proven track record of reducing patching time by 75% and improving MTTR by 30-50% through IaC and automation.
+        </p>
+
+        <div class="contact-badges">
+            <span><i class="fas fa-map-marker-alt"></i> Tirupati, India</span>
+            <span><i class="fas fa-envelope"></i> hemanthkumarb651@gmail.com</span>
+            <span><i class="fas fa-phone"></i> +91-7674833609</span>
+        </div>
+
+        <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Explore My Work</a>
+            <a href="#experience" class="btn btn-secondary">View Experience</a>
+        </div>
+    </section>
+
+    <section id="skills" class="reveal">
+        <h2 class="section-title">Technical <span>Arsenal</span></h2>
+        <div class="skills-grid">
+            <div class="skill-category glass-card">
+                <h3><i class="fas fa-cloud"></i> Cloud & CI/CD</h3>
+                <div class="tags">
+                    <span>AWS (EC2, EKS, S3, VPC, IAM, Route53)</span><span>Azure</span>
+                    <span>Jenkins</span><span>GitHub Actions</span><span>ArgoCD</span><span>GitOps</span>
+                </div>
+            </div>
+            <div class="skill-category glass-card">
+                <h3><i class="fas fa-box"></i> Containers & IaC</h3>
+                <div class="tags">
+                    <span>Docker</span><span>Kubernetes</span><span>EKS</span><span>Kustomize</span>
+                    <span>Terraform</span><span>Ansible</span>
+                </div>
+            </div>
+            <div class="skill-category glass-card">
+                <h3><i class="fas fa-shield-alt"></i> Security & Monitoring</h3>
+                <div class="tags">
+                    <span>DevSecOps</span><span>Container Hardening</span><span>RBAC</span>
+                    <span>Prometheus</span><span>Grafana</span><span>Centralized Logging</span>
+                </div>
+            </div>
+            <div class="skill-category glass-card">
+                <h3><i class="fas fa-robot"></i> AI/MLOps & Scripting</h3>
+                <div class="tags">
+                    <span>LLM Agents</span><span>Model Context Protocol (MCP)</span><span>GitHub Copilot</span>
+                    <span>Python</span><span>Bash/Shell</span><span>Linux/RHEL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="reveal">
+        <h2 class="section-title">Professional <span>Experience</span></h2>
+        <div class="timeline">
+            <div class="timeline-item glass-card">
+                <div class="timeline-header">
+                    <div>
+                        <h3>DevOps Engineer</h3>
+                        <h4>Accenture</h4>
+                    </div>
+                    <div class="timeline-date">Feb 2024 - Present</div>
+                </div>
+                <ul class="experience-list">
+                    <li>Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability across dev, test, and staging.</li>
+                    <li>Automated infrastructure provisioning and patching with Ansible and Terraform (IaC), reducing patching time by 75%.</li>
+                    <li>Built and optimized CI/CD pipelines (Jenkins, GitHub Actions), accelerating deployments by 50%+.</li>
+                    <li>Implemented centralized monitoring (Prometheus, Grafana), reducing Mean Time to Resolution (MTTR) by 30-50%.</li>
+                    <li>Deployed GitOps workflows with ArgoCD for zero-downtime, version-controlled Kubernetes releases.</li>
+                    <li>Integrated DevSecOps practices - security scanning, policy-as-code, and RBAC enforcement in CI/CD pipelines.</li>
+                    <li>Authored RCA reports, runbooks, and SRE documentation, improving incident response and team onboarding.</li>
+                    <li>Leveraged AI tools (GitHub Copilot, LLM agents) to accelerate IaC development, code reviews, and incident triage.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="reveal">
+        <h2 class="section-title">Key <span>Projects</span></h2>
+        <p class="subtitle">Click cards for technical depth</p>
+        
+        <div class="project-grid">
+            <div class="project-card glass-card" onclick="openModal('Jira MCP Server on Kubernetes', '<ul><li>Architected and deployed a production-grade AI integration platform using the Model Context Protocol (MCP), enabling LLM agents (GitHub Copilot) to perform Jira operations via natural language across 22 automated tools.</li><li>Implemented multi-user PAT authentication, hardened Docker image (non-root, read-only FS, dropped capabilities), and Kubernetes manifests with Kustomize, health probes, and resource limits.</li><li>Designed resilient API layer with exponential backoff retries; authored prompt engineering templates (.agent.md) and onboarding runbooks for team-wide AI adoption.</li></ul>')">
+                <div class="project-icon"><i class="fas fa-network-wired"></i></div>
                 <h3>Jira MCP Server (AI Platform)</h3>
-                <p>AI-powered automation platform integrating LLM agents with Jira via natural language.</p>
+                <p>AI-integrated automation platform bridging LLM agents with Jira via natural language.</p>
+                <span class="view-more">View Details <i class="fas fa-arrow-right"></i></span>
             </div>
 
-            <div class="card" onclick="openModal('End-to-End DevOps Cloud Architecture', 'Provisioned production AWS infrastructure (VPC, EKS, EC2, S3, IAM) using Terraform. Containerized workloads with Docker and implemented GitOps with ArgoCD for zero-downtime deployments. Configured full Prometheus/Grafana observability stack.')">
+            <div class="project-card glass-card" onclick="openModal('End-to-End DevOps Cloud Architecture', '<ul><li>Provisioned production AWS infrastructure (VPC, EKS, EC2, S3, IAM, Route53) using Terraform.</li><li>Containerized workloads with Docker/Kubernetes (EKS); implemented GitOps (ArgoCD) for zero-downtime deployments.</li><li>Configured Route53 DNS, Ingress Controllers, and Prometheus/Grafana observability stack.</li></ul>')">
+                <div class="project-icon"><i class="fab fa-aws"></i></div>
                 <h3>AWS Cloud Architecture</h3>
-                <p>Production-grade AWS infrastructure provisioned with Terraform and GitOps (ArgoCD).</p>
+                <p>Production-ready AWS infrastructure with Terraform provisioning and ArgoCD GitOps.</p>
+                <span class="view-more">View Details <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="reveal">
+        <h2 class="section-title">Certifications & <span>Awards</span></h2>
+        <div class="split-grid">
+            <div class="glass-card list-card">
+                <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                <ul>
+                    <li><strong>Red Hat:</strong> Certified System Administrator (RHCSA)</li>
+                    <li><strong>AWS:</strong> Certified Cloud Practitioner</li>
+                    <li><strong>Microsoft:</strong> Certified: Azure Fundamentals (AZ-900)</li>
+                    <li><strong>HashiCorp:</strong> Certified: Terraform Associate</li>
+                    <li><strong>Anthropic:</strong> Claude Code Architect</li>
+                </ul>
+            </div>
+            <div class="glass-card list-card">
+                <h3><i class="fas fa-trophy"></i> Awards & Education</h3>
+                <ul>
+                    <li><strong>Pinnacle Award:</strong> Recognized for continuous learning and performance.</li>
+                    <li><strong>Multi-Dimensional Skill Champion:</strong> Recognized for cross-functional excellence.</li>
+                    <li style="margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                        <strong>B.E., 2023</strong> - Sathyabama Institute of Science and Technology
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
 
     <div class="modal-overlay" id="projectModal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-            <h2 id="modalTitle" style="color: var(--primary); margin-bottom: 1rem;">Project Title</h2>
-            <p id="modalDesc">Project description goes here...</p>
+        <div class="modal-content glass-card">
+            <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <h2 id="modalTitle">Project Title</h2>
+            <div id="modalDesc" class="modal-body"></div>
         </div>
     </div>
 
