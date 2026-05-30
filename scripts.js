@@ -1,26 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Get all the buttons and panes
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    // 1. Scroll Reveal Animation
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Trigger when 15% of the element is visible
+    };
 
-    // 2. Loop through all buttons and add a click event
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Get the ID of the target tab from data-target attribute
-            const targetId = button.getAttribute('data-target');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
 
-            // Remove 'active' class from ALL buttons
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            // Remove 'active' class from ALL panes
-            tabPanes.forEach(pane => pane.classList.remove('active'));
+    // Observe all elements with the scroll-reveal class
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    revealElements.forEach(el => observer.observe(el));
 
-            // Add 'active' class to the clicked button
-            button.classList.add('active');
+
+    // 2. Smooth Scrolling for Navigation Links
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
             
-            // Find the pane with the matching ID and make it active
-            const targetPane = document.getElementById(targetId);
-            if (targetPane) {
-                targetPane.classList.add('active');
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80, // Offset for the fixed navbar
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // 3. Update Active Link on Scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
             }
         });
     });
