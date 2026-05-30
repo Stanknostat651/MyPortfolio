@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(typeEffect, 1000);
 
     /* --- 2. Interactive Orbit Icons Logic --- */
-    // Detailed data mapped directly from your resume
     const orbitData = {
         aws: {
             title: "Cloud & AWS",
@@ -56,27 +55,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const orbitContent = document.getElementById('orbit-content');
     const closeInfoBtn = document.querySelector('.close-info');
 
-    // Handle clicks on orbiting buttons
     orbitButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            // Forcefully get the data-tech from the button itself
             const tech = this.getAttribute('data-tech');
             const data = orbitData[tech];
 
             if (data) {
-                // Populate data
                 orbitTitle.textContent = data.title;
                 orbitContent.innerHTML = data.content;
-
-                // Hide Image, Show Info Panel
                 profileImageState.classList.add('hidden');
                 profileInfoState.classList.remove('hidden');
             }
         });
     });
 
-    // Close Info Panel
     closeInfoBtn.addEventListener('click', () => {
         profileInfoState.classList.add('hidden');
         profileImageState.classList.remove('hidden');
@@ -84,20 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 3. Bulletproof Scroll Reveal Animation --- */
     const revealElements = document.querySelectorAll('.reveal');
-    
-    // First, hide all elements so they can fade in
     revealElements.forEach(el => el.classList.add('is-hidden'));
 
     const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
-            // Remove the hidden class to trigger the CSS transition
             entry.target.classList.remove('is-hidden');
             observer.unobserve(entry.target);
         });
     }, revealOptions);
-    
     revealElements.forEach(el => revealOnScroll.observe(el));
 
     /* --- 4. Smooth Scrolling & Navbar Active State --- */
