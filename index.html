@@ -3,182 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bellam Hemanth Kumar Reddy | Professional Portfolio</title>
-    <!-- Fonts matching the design: Caveat for logo, Inter for clean modern text -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Bellam Hemanth Kumar Reddy | Infrastructure & DevOps</title>
+    <!-- Professional Sans-Serif Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Main Dashboard Container -->
-    <div class="portfolio-container">
-        
-        <!-- LEFT SIDEBAR (Profile) -->
-        <aside class="sidebar">
-            <div class="logo-text">Hemanth.</div>
-            
-            <h1 class="name">Bellam Hemanth<br>Kumar Reddy</h1>
-            <h2 class="role">DEVOPS ENGINEER | SRE | DEVSECOPS</h2><!--[cite: 2]-->
-            
-            <p class="summary">
-                DevOps / SRE Engineer with hands-on experience in Site Reliability Engineering, DevSecOps, AIOps, and cloud infrastructure. Proven track record of reducing patching time by 75% and accelerating deployments by 50%+.<!--[cite: 2]-->
-            </p>
+    <!-- Subtle Grid Background to represent Infrastructure -->
+    <div class="bg-grid"></div>
 
-            <ul class="contact-list">
-                <li><i class="fas fa-map-marker-alt"></i> Tirupati, India</li><!--[cite: 2]-->
-                <li><i class="fas fa-envelope"></i> hemanthkumarb651@gmail.com</li><!--[cite: 2]-->
-                <li><i class="fas fa-phone-alt"></i> +91-7674833609</li><!--[cite: 2]-->
-                <li><i class="fab fa-linkedin"></i> LinkedIn Profile</li><!--[cite: 2]-->
-            </ul>
-
-            <a href="HemanthKumarReddy_Devops_2.pdf" download="Bellam_Hemanth_Kumar_Reddy_Resume.pdf" class="btn-download">
-                <i class="fas fa-download"></i> DOWNLOAD RESUME
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">BHKR<span class="dot">.</span></div>
+            <div class="nav-links">
+                <a href="#about">Profile</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Deployments</a>
+            </div>
+            <a href="HemanthKumarReddy_Devops_2.pdf" download="Bellam_Hemanth_Kumar_Reddy_Resume.pdf" class="btn-primary nav-btn">
+                <i class="fas fa-download"></i> Resume
             </a>
-        </aside>
+        </div>
+    </nav>
 
-        <!-- RIGHT MAIN CONTENT -->
-        <main class="main-content">
-            
-            <!-- Navigation Tabs -->
-            <nav class="tabs">
-                <button class="tab-btn active" onclick="switchTab('skills', this)">SKILLS & CERTS</button>
-                <button class="tab-btn" onclick="switchTab('experience', this)">EXPERIENCE</button>
-                <button class="tab-btn" onclick="switchTab('projects', this)">KEY PROJECTS</button>
-            </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <span class="badge">Systems & Infrastructure</span>
+            <h1 class="hero-title">Bellam Hemanth Kumar Reddy</h1><!--[cite: 2]-->
+            <h2 class="hero-subtitle">DevOps Engineer | SRE | DevSecOps</h2><!--[cite: 2]-->
+            <p class="hero-desc">
+                Architecting resilient cloud infrastructure and AI-integrated automation platforms. Proven track record of reducing patching time by 75% and accelerating deployments by over 50%.<!--[cite: 2]-->
+            </p>
+            <div class="contact-bar">
+                <span><i class="fas fa-map-marker-alt"></i> Tirupati, India</span><!--[cite: 2]-->
+                <span><i class="fas fa-envelope"></i> hemanthkumarb651@gmail.com</span><!--[cite: 2]-->
+                <span><i class="fas fa-phone"></i> +91-7674833609</span><!--[cite: 2]-->
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i> LinkedIn</a><!--[cite: 2]-->
+            </div>
+        </div>
+    </section>
 
-            <!-- SKILLS & CERTS TAB (Matches Image Exactly) -->
-            <div id="skills" class="tab-pane active">
-                
-                <div class="section-heading">
-                    <i class="fas fa-code"></i> Technical Arsenal
-                </div>
+    <!-- Expertise Tabs Section -->
+    <section id="expertise" class="section">
+        <div class="section-header fade-in">
+            <h2>Technical Arsenal</h2>
+            <p>Core competencies across the DevOps lifecycle.</p>
+        </div>
 
-                <div class="cards-grid">
-                    <!-- Card 1 -->
-                    <div class="tech-card animate-up">
-                        <h3>Cloud & CI/CD</h3>
-                        <div class="tags">
-                            <span class="tag">AWS (EC2, EKS, S3)</span><!--[cite: 2]-->
-                            <span class="tag">Azure</span><!--[cite: 2]-->
-                            <span class="tag">Jenkins</span><!--[cite: 2]-->
-                            <span class="tag">GitHub Actions</span><!--[cite: 2]-->
-                            <span class="tag">ArgoCD</span><!--[cite: 2]-->
-                            <span class="tag">GitOps</span><!--[cite: 2]-->
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="tech-card animate-up" style="animation-delay: 0.1s;">
-                        <h3>Containers & IaC</h3>
-                        <div class="tags">
-                            <span class="tag">Docker</span><!--[cite: 2]-->
-                            <span class="tag">Kubernetes</span><!--[cite: 2]-->
-                            <span class="tag">Terraform</span><!--[cite: 2]-->
-                            <span class="tag">Ansible</span><!--[cite: 2]-->
-                            <span class="tag">Kustomize</span><!--[cite: 2]-->
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="tech-card animate-up" style="animation-delay: 0.2s;">
-                        <h3>AI/MLOps & Scripting</h3>
-                        <div class="tags">
-                            <span class="tag">LLM Agents</span><!--[cite: 2]-->
-                            <span class="tag">MCP</span><!--[cite: 2]-->
-                            <span class="tag">GitHub Copilot</span><!--[cite: 2]-->
-                            <span class="tag">Python</span><!--[cite: 2]-->
-                            <span class="tag">Bash/Shell</span><!--[cite: 2]-->
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="tech-card animate-up" style="animation-delay: 0.3s;">
-                        <h3>Security & Monitoring</h3>
-                        <div class="tags">
-                            <span class="tag">DevSecOps</span><!--[cite: 2]-->
-                            <span class="tag">Prometheus</span><!--[cite: 2]-->
-                            <span class="tag">Grafana</span><!--[cite: 2]-->
-                            <span class="tag">RBAC</span><!--[cite: 2]-->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-heading" style="margin-top: 2.5rem;">
-                    <i class="fas fa-certificate" style="color: #c026d3;"></i> Certifications
-                </div>
-                
-                <div class="tech-card animate-up" style="animation-delay: 0.4s;">
-                    <div class="tags">
-                        <span class="tag">RHCSA</span><!--[cite: 2]-->
-                        <span class="tag">AWS Cloud Practitioner</span><!--[cite: 2]-->
-                        <span class="tag">Azure Fundamentals (AZ-900)</span><!--[cite: 2]-->
-                        <span class="tag">Terraform Associate</span><!--[cite: 2]-->
-                        <span class="tag">Claude Code Architect</span><!--[cite: 2]-->
-                    </div>
-                </div>
+        <div class="tab-container fade-in">
+            <div class="tab-controls">
+                <button class="tab-btn active" data-target="cloud">Cloud & CI/CD</button>
+                <button class="tab-btn" data-target="containers">Containers & IaC</button>
+                <button class="tab-btn" data-target="security">Security & MLOps</button>
+                <button class="tab-btn" data-target="certs">Certifications</button>
             </div>
 
-            <!-- EXPERIENCE TAB -->
-            <div id="experience" class="tab-pane">
-                <div class="section-heading">
-                    <i class="fas fa-briefcase"></i> Professional Experience
+            <div class="tab-content-area">
+                <!-- Cloud Tab -->
+                <div id="cloud" class="tab-pane active">
+                    <div class="tech-grid">
+                        <div class="tech-item">AWS (EC2, EKS, S3, VPC, IAM)</div><!--[cite: 2]-->
+                        <div class="tech-item">Microsoft Azure</div><!--[cite: 2]-->
+                        <div class="tech-item">Jenkins pipelines</div><!--[cite: 2]-->
+                        <div class="tech-item">GitHub Actions</div><!--[cite: 2]-->
+                        <div class="tech-item">ArgoCD</div><!--[cite: 2]-->
+                        <div class="tech-item">GitOps Workflows</div><!--[cite: 2]-->
+                    </div>
                 </div>
 
-                <div class="timeline-card animate-up">
-                    <div class="timeline-header">
-                        <div>
-                            <h3>DevOps Engineer</h3><!--[cite: 2]-->
-                            <h4>Accenture</h4><!--[cite: 2]-->
-                        </div>
-                        <span class="date-badge">Feb 2024 - Present</span><!--[cite: 2]-->
+                <!-- Containers Tab -->
+                <div id="containers" class="tab-pane">
+                    <div class="tech-grid">
+                        <div class="tech-item">Docker</div><!--[cite: 2]-->
+                        <div class="tech-item">Kubernetes (EKS)</div><!--[cite: 2]-->
+                        <div class="tech-item">Terraform</div><!--[cite: 2]-->
+                        <div class="tech-item">Ansible</div><!--[cite: 2]-->
+                        <div class="tech-item">Kustomize</div><!--[cite: 2]-->
+                        <div class="tech-item">Linux / RHEL</div><!--[cite: 2]-->
                     </div>
-                    <ul class="styled-list">
-                        <li>Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability across dev, test, and staging.</li><!--[cite: 2]-->
-                        <li>Automated infrastructure provisioning and patching with Ansible and Terraform (IaC), reducing patching time by 75%.</li><!--[cite: 2]-->
-                        <li>Built and optimized CI/CD pipelines (Jenkins, GitHub Actions), accelerating deployments by 50%+.</li><!--[cite: 2]-->
-                        <li>Implemented centralized monitoring (Prometheus, Grafana), reducing Mean Time to Resolution (MTTR) by 30-50%.</li><!--[cite: 2]-->
-                        <li>Deployed GitOps workflows with ArgoCD for zero-downtime, version-controlled Kubernetes releases.</li><!--[cite: 2]-->
-                        <li>Integrated DevSecOps practices - security scanning, policy-as-code, and RBAC enforcement in CI/CD pipelines.</li><!--[cite: 2]-->
-                        <li>Leveraged AI tools (GitHub Copilot, LLM agents) to accelerate IaC development, code reviews, and incident triage.</li><!--[cite: 2]-->
+                </div>
+
+                <!-- Security Tab -->
+                <div id="security" class="tab-pane">
+                    <div class="tech-grid">
+                        <div class="tech-item">DevSecOps & RBAC</div><!--[cite: 2]-->
+                        <div class="tech-item">Prometheus & Grafana</div><!--[cite: 2]-->
+                        <div class="tech-item">LLM Agents & MCP</div><!--[cite: 2]-->
+                        <div class="tech-item">GitHub Copilot</div><!--[cite: 2]-->
+                        <div class="tech-item">Python</div><!--[cite: 2]-->
+                        <div class="tech-item">Bash Scripting</div><!--[cite: 2]-->
+                    </div>
+                </div>
+
+                <!-- Certs Tab -->
+                <div id="certs" class="tab-pane">
+                    <ul class="cert-list">
+                        <li><i class="fas fa-shield-alt"></i> Red Hat Certified System Administrator (RHCSA)</li><!--[cite: 2]-->
+                        <li><i class="fas fa-cloud"></i> AWS Certified Cloud Practitioner</li><!--[cite: 2]-->
+                        <li><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Fundamentals (AZ-900)</li><!--[cite: 2]-->
+                        <li><i class="fas fa-cubes"></i> HashiCorp Certified: Terraform Associate</li><!--[cite: 2]-->
+                        <li><i class="fas fa-brain"></i> Claude Code Architect</li><!--[cite: 2]-->
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- PROJECTS TAB -->
-            <div id="projects" class="tab-pane">
-                <div class="section-heading">
-                    <i class="fas fa-rocket"></i> Key Projects
-                </div>
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="section-header fade-in">
+            <h2>Professional Experience</h2>
+            <p>Operational impact and infrastructure management.</p>
+        </div>
 
-                <div class="cards-grid" style="grid-template-columns: 1fr;">
-                    <!-- Project 1 -->
-                    <div class="tech-card animate-up">
-                        <h3 style="color: #00d2ff; font-size: 1.2rem; margin-bottom: 5px;">Jira MCP Server on Kubernetes (AI Platform)</h3><!--[cite: 2]-->
-                        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">Architected and deployed a production-grade AI integration platform using the Model Context Protocol (MCP).</p><!--[cite: 2]-->
-                        <ul class="styled-list">
-                            <li>Enabled LLM agents (GitHub Copilot) to perform Jira operations via natural language across 22 automated tools.</li><!--[cite: 2]-->
-                            <li>Implemented multi-user PAT authentication, hardened Docker image, and Kubernetes manifests with Kustomize.</li><!--[cite: 2]-->
-                            <li>Designed resilient API layer with exponential backoff retries and authored prompt engineering templates.</li><!--[cite: 2]-->
-                        </ul>
+        <div class="timeline">
+            <div class="timeline-card fade-in">
+                <div class="card-header">
+                    <div class="role-info">
+                        <h3>DevOps Engineer</h3><!--[cite: 2]-->
+                        <h4>Accenture</h4><!--[cite: 2]-->
                     </div>
-
-                    <!-- Project 2 -->
-                    <div class="tech-card animate-up" style="animation-delay: 0.1s;">
-                        <h3 style="color: #00d2ff; font-size: 1.2rem; margin-bottom: 5px;">End-to-End DevOps Cloud Architecture on AWS</h3><!--[cite: 2]-->
-                        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">Provisioned production AWS infrastructure and implemented GitOps for zero-downtime deployments.</p><!--[cite: 2]-->
-                        <ul class="styled-list">
-                            <li>Provisioned production AWS infrastructure (VPC, EKS, EC2, S3, IAM, Route53) using Terraform.</li><!--[cite: 2]-->
-                            <li>Containerized workloads with Docker/Kubernetes (EKS); implemented GitOps (ArgoCD).</li><!--[cite: 2]-->
-                            <li>Configured Route53 DNS, Ingress Controllers, and Prometheus/Grafana observability stack.</li><!--[cite: 2]-->
-                        </ul>
-                    </div>
+                    <div class="date">February 2024 - Present</div><!--[cite: 2]-->
                 </div>
+                <ul class="bullet-list">
+                    <li>Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability across dev, test, and staging.</li><!--[cite: 2]-->
+                    <li>Automated infrastructure provisioning and patching with Ansible and Terraform (IaC), reducing patching time by 75%.</li><!--[cite: 2]-->
+                    <li>Built and optimized CI/CD pipelines (Jenkins, GitHub Actions), accelerating deployments by 50%+.</li><!--[cite: 2]-->
+                    <li>Implemented centralized monitoring (Prometheus, Grafana), reducing Mean Time to Resolution (MTTR) by 30-50%.</li><!--[cite: 2]-->
+                    <li>Deployed GitOps workflows with ArgoCD for zero-downtime, version-controlled Kubernetes releases.</li><!--[cite: 2]-->
+                    <li>Integrated DevSecOps practices - security scanning, policy-as-code, and RBAC enforcement.</li><!--[cite: 2]-->
+                    <li>Leveraged AI tools (GitHub Copilot, LLM agents) to accelerate IaC development, code reviews, and incident triage.</li><!--[cite: 2]-->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="section-header fade-in">
+            <h2>Key Deployments</h2>
+            <p>Architectural design and platform engineering.</p>
+        </div>
+
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project-card fade-in">
+                <div class="project-icon"><i class="fas fa-network-wired"></i></div>
+                <h3>Jira MCP Server on Kubernetes</h3><!--[cite: 2]-->
+                <p class="project-sub">AI-Powered Automation Platform</p><!--[cite: 2]-->
+                <ul class="bullet-list">
+                    <li>Architected a production-grade AI integration platform using the Model Context Protocol (MCP).</li><!--[cite: 2]-->
+                    <li>Enabled LLM agents (GitHub Copilot) to perform Jira operations via natural language across 22 tools.</li><!--[cite: 2]-->
+                    <li>Implemented multi-user PAT authentication, hardened Docker images, and resilient API layers.</li><!--[cite: 2]-->
+                </ul>
             </div>
 
-        </main>
-    </div>
+            <!-- Project 2 -->
+            <div class="project-card fade-in">
+                <div class="project-icon"><i class="fas fa-server"></i></div>
+                <h3>End-to-End Cloud Architecture</h3><!--[cite: 2]-->
+                <p class="project-sub">AWS & GitOps Integration</p><!--[cite: 2]-->
+                <ul class="bullet-list">
+                    <li>Provisioned production AWS infrastructure (VPC, EKS, EC2, S3, IAM, Route53) using Terraform.</li><!--[cite: 2]-->
+                    <li>Containerized workloads with Docker/Kubernetes (EKS); implemented GitOps (ArgoCD) for zero-downtime.</li><!--[cite: 2]-->
+                    <li>Configured Route53 DNS, Ingress Controllers, and Prometheus/Grafana observability stack.</li><!--[cite: 2]-->
+                </ul>
+            </div>
+        </div>
+    </section>
 
+    <!-- JS linked at the very bottom so DOM is loaded before execution -->
     <script src="script.js"></script>
 </body>
 </html>
