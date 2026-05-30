@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bellam Hemanth Kumar Reddy | DevOps Portfolio</title>
+    <!-- Importing Inter for standard text and Caveat for the handwriting logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Modern App-Style Dashboard CSS */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
-
         :root {
-            --bg-dark: #0f172a;
-            --bg-panel: #1e293b;
-            --primary: #38bdf8;
-            --primary-hover: #0ea5e9;
+            --bg-dark: #050b14;
+            --primary: #00f0ff;
+            --primary-hover: #00c3ff;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border: #334155;
-            --accent: #818cf8;
+            --border: rgba(255, 255, 255, 0.1);
+            --accent: #bc13fe;
+            --glass-bg: rgba(15, 23, 42, 0.65);
+            --glass-panel: rgba(30, 41, 59, 0.5);
         }
 
         * {
@@ -35,26 +35,50 @@
             justify-content: center;
             align-items: center;
             overflow: hidden; 
+            position: relative;
         }
 
-        /* Main App Container */
+        /* --- Animated Background Orbs (Fixes the "Plain" look) --- */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            z-index: -1;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+        .orb-1 {
+            width: 500px; height: 500px;
+            background: var(--primary);
+            top: -150px; left: -150px;
+        }
+        .orb-2 {
+            width: 600px; height: 600px;
+            background: var(--accent);
+            bottom: -200px; right: -100px;
+            animation-delay: -6s;
+        }
+
+        /* --- Main App Container (Glassmorphism) --- */
         .app-container {
             width: 95vw;
             height: 90vh;
             max-width: 1400px;
-            background: var(--bg-panel);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
             display: flex;
             overflow: hidden;
             border: 1px solid var(--border);
-            animation: appLoad 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: appLoad 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Left Banner (Fixed) */
+        /* --- Left Banner --- */
         .banner {
             width: 35%;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(5, 11, 20, 0.9) 100%);
             padding: 3rem;
             display: flex;
             flex-direction: column;
@@ -62,39 +86,42 @@
             position: relative;
         }
 
+        /* Signature Handwriting Logo */
         .logo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: -2px;
-            color: var(--text-main);
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo i {
-            color: var(--primary);
+            font-family: 'Caveat', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
+            transform: rotate(-3deg);
+            display: inline-block;
+            animation: signatureGlow 3s infinite alternate;
         }
 
         .banner h1 {
-            font-size: 2.5rem;
-            line-height: 1.1;
+            font-size: 2.2rem;
+            line-height: 1.2;
             margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .banner h2 {
             font-size: 1.1rem;
             color: var(--primary);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .banner p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
         }
 
         .contact-info {
@@ -103,57 +130,66 @@
         }
 
         .contact-info li {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
             gap: 15px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-info li:hover {
+            transform: translateX(10px);
+            color: var(--primary);
         }
 
         .contact-info i {
             color: var(--accent);
             font-size: 1.2rem;
-            width: 20px;
+            width: 25px;
+            text-align: center;
+            text-shadow: 0 0 10px var(--accent);
         }
 
         .download-btn {
-            background: var(--primary);
-            color: #0f172a;
+            background: linear-gradient(90deg, var(--primary), #00a2ff);
+            color: #000;
             text-decoration: none;
-            padding: 1rem;
-            border-radius: 10px;
-            font-weight: 700;
+            padding: 1.2rem;
+            border-radius: 12px;
+            font-weight: 800;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .download-btn:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 240, 255, 0.5);
         }
 
-        /* Right Content Area */
+        /* --- Right Content Area --- */
         .content-area {
             width: 65%;
             display: flex;
             flex-direction: column;
-            background: var(--bg-dark);
+            background: transparent;
         }
 
         /* Navigation Tabs */
         .nav-tabs {
             display: flex;
             padding: 0 3rem;
-            background: var(--bg-panel);
+            background: rgba(0,0,0,0.2);
             border-bottom: 1px solid var(--border);
         }
 
@@ -161,32 +197,27 @@
             background: none;
             border: none;
             color: var(--text-muted);
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             position: relative;
             transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .tab-btn:hover {
-            color: var(--text-main);
-        }
-
-        .tab-btn.active {
-            color: var(--primary);
-        }
+        .tab-btn:hover { color: var(--text-main); }
+        .tab-btn.active { color: var(--primary); text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
 
         .tab-btn.active::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
+            bottom: -1px; left: 0;
+            width: 100%; height: 3px;
             background: var(--primary);
             border-radius: 3px 3px 0 0;
-            box-shadow: 0 -2px 10px rgba(56, 189, 248, 0.5);
+            box-shadow: 0 -2px 15px var(--primary);
         }
 
         /* Tab Content Screens */
@@ -195,7 +226,6 @@
             padding: 3rem;
             overflow-y: auto; 
             display: none;
-            animation: fadeIn 0.4s ease forwards;
         }
 
         .tab-content.active {
@@ -207,11 +237,14 @@
             margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-weight: 700;
+            color: #fff;
         }
 
         .section-header i {
             color: var(--accent);
+            text-shadow: 0 0 15px var(--accent);
         }
 
         /* Skills Grid */
@@ -222,186 +255,212 @@
         }
 
         .skill-box {
-            background: var(--bg-panel);
+            background: var(--glass-panel);
             padding: 1.5rem;
-            border-radius: 12px;
+            border-radius: 16px;
             border: 1px solid var(--border);
+            transition: transform 0.3s, border-color 0.3s;
+            opacity: 0;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .skill-box h4 {
             color: var(--text-main);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             font-size: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
         }
 
         .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            display: flex; flex-wrap: wrap; gap: 10px;
         }
 
         .tag {
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(0, 240, 255, 0.05);
             color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
             font-size: 0.85rem;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 15px var(--primary);
+            transform: scale(1.05);
         }
 
         /* Experience List */
         .exp-card {
-            background: var(--bg-panel);
-            padding: 2rem;
-            border-radius: 12px;
+            background: var(--glass-panel);
+            padding: 2.5rem;
+            border-radius: 16px;
             border: 1px solid var(--border);
             margin-bottom: 1.5rem;
+            opacity: 0;
         }
 
         .exp-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
+            display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;
         }
 
-        .exp-header h3 {
-            color: var(--primary);
-        }
+        .exp-header h3 { font-size: 1.4rem; color: var(--primary); }
+        .exp-header p { color: #fff; margin-top: 5px; font-weight: 500; font-size: 1.1rem; }
         
         .exp-header span {
-            color: var(--text-muted);
+            color: var(--text-main);
             font-size: 0.9rem;
-            background: rgba(255,255,255,0.05);
-            padding: 4px 12px;
+            background: rgba(255,255,255,0.1);
+            padding: 6px 15px;
             border-radius: 20px;
+            border: 1px solid var(--border);
         }
 
-        .exp-list {
-            list-style: none;
-        }
+        .exp-list { list-style: none; }
 
         .exp-list li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            margin-bottom: 1.2rem;
             color: var(--text-muted);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .exp-list li::before {
             content: '▹';
-            position: absolute;
-            left: 0;
+            position: absolute; left: 0;
             color: var(--accent);
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px var(--accent);
         }
 
-        /* Projects - Accordion Style */
+        /* Projects Accordion */
         .project-card {
-            background: var(--bg-panel);
+            background: var(--glass-panel);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 16px;
             margin-bottom: 1.5rem;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
         }
 
         .project-header {
-            padding: 1.5rem;
+            padding: 1.8rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            background: rgba(255,255,255,0.02);
         }
 
-        .project-header h3 {
-            font-size: 1.1rem;
-            color: var(--text-main);
-        }
-
-        .project-header p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
+        .project-header h3 { font-size: 1.2rem; color: #fff; }
+        .project-header p { color: var(--primary); font-size: 0.9rem; margin-top: 8px; }
 
         .project-toggle {
-            color: var(--primary);
-            transition: transform 0.3s ease;
+            color: var(--text-muted);
+            transition: transform 0.4s ease;
+            font-size: 1.2rem;
         }
 
         .project-details {
             max-height: 0;
-            padding: 0 1.5rem;
+            padding: 0 1.8rem;
             opacity: 0;
             transition: all 0.4s ease;
-            background: var(--bg-dark);
         }
 
         .project-card.expanded {
             border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            background: rgba(30, 41, 59, 0.8);
         }
 
         .project-card.expanded .project-toggle {
             transform: rotate(180deg);
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
         }
 
         .project-card.expanded .project-details {
             max-height: 500px;
-            padding: 1.5rem;
+            padding: 1.8rem;
             opacity: 1;
             border-top: 1px solid var(--border);
         }
 
-        .project-details ul {
-            list-style: none;
-        }
-
         .project-details li {
-            padding-left: 1.5rem;
+            padding-left: 1.8rem;
             position: relative;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: var(--text-muted);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .project-details li::before {
             content: '⚡';
-            position: absolute;
-            left: 0;
-            font-size: 0.8rem;
+            position: absolute; left: 0;
+            font-size: 0.9rem;
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-        /* Animations */
+        /* --- Animations --- */
         @keyframes appLoad {
-            0% { opacity: 0; transform: scale(0.95) translateY(20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateX(10px); }
-            100% { opacity: 1; transform: translateX(0); }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+            100% { transform: translate(-20px, 20px) scale(0.9); }
         }
-
+        @keyframes signatureGlow {
+            0% { text-shadow: 0 0 10px var(--primary); }
+            100% { text-shadow: 0 0 25px var(--primary), 0 0 40px #00a2ff; }
+        }
+        
+        /* Utility class for JS staggered animation */
+        .animate-in {
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Floating Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
 
     <div class="app-container">
         
         <!-- FIXED LEFT BANNER -->
         <div class="banner">
-            <div class="logo"><i class="fas fa-terminal"></i> BHKR.</div>
+            <!-- Signature Logo -->
+            <div class="logo">Hemanth.</div>
             
             <!--[cite: 2] -->
             <h1>Bellam Hemanth Kumar Reddy</h1>
-            <h2>DevOps Engineer | SRE | DevSecOps | AIOps</h2>
+            <!--[cite: 2] -->
+            <h2>DevOps Engineer | SRE | DevSecOps</h2>
             
             <!--[cite: 2] -->
             <p>DevOps / SRE Engineer with hands-on experience in Site Reliability Engineering, DevSecOps, AIOps, and cloud infrastructure. Proven track record of reducing patching time by 75% and accelerating deployments by 50%+.</p>
@@ -418,6 +477,7 @@
             </ul>
 
             <!-- Working Download Button -->
+            <!--[cite: 2] -->
             <a href="HemanthKumarReddy_Devops_2.pdf" download="Bellam_Hemanth_Kumar_Reddy_Resume.pdf" class="download-btn">
                 <i class="fas fa-file-download"></i> Download Resume
             </a>
@@ -428,45 +488,45 @@
             
             <!-- TABS -->
             <div class="nav-tabs">
-                <button class="tab-btn active" onclick="switchTab('skills')">Skills & Certs</button>
-                <button class="tab-btn" onclick="switchTab('experience')">Experience</button>
-                <button class="tab-btn" onclick="switchTab('projects')">Key Projects</button>
+                <button class="tab-btn active" onclick="switchTab('skills', this)">Skills & Certs</button>
+                <button class="tab-btn" onclick="switchTab('experience', this)">Experience</button>
+                <button class="tab-btn" onclick="switchTab('projects', this)">Key Projects</button>
             </div>
 
             <!-- SKILLS TAB -->
             <div id="skills" class="tab-content active">
-                <h2 class="section-header"><i class="fas fa-code"></i> Technical Arsenal</h2>
+                <h2 class="section-header stagg-item"><i class="fas fa-code"></i> Technical Arsenal</h2>
                 <div class="skills-grid">
-                    <!--[cite: 2] -->
-                    <div class="skill-box">
+                    <div class="skill-box stagg-item">
                         <h4>Cloud & CI/CD</h4>
+                        <!--[cite: 2] -->
                         <div class="tag-container">
                             <span class="tag">AWS (EC2, EKS, S3)</span><span class="tag">Azure</span>
                             <span class="tag">Jenkins</span><span class="tag">GitHub Actions</span>
                             <span class="tag">ArgoCD</span><span class="tag">GitOps</span>
                         </div>
                     </div>
-                    <!--[cite: 2] -->
-                    <div class="skill-box">
+                    <div class="skill-box stagg-item">
                         <h4>Containers & IaC</h4>
+                        <!--[cite: 2] -->
                         <div class="tag-container">
                             <span class="tag">Docker</span><span class="tag">Kubernetes</span>
                             <span class="tag">Terraform</span><span class="tag">Ansible</span>
                             <span class="tag">Kustomize</span>
                         </div>
                     </div>
-                    <!--[cite: 2] -->
-                    <div class="skill-box">
+                    <div class="skill-box stagg-item">
                         <h4>AI/MLOps & Scripting</h4>
+                        <!--[cite: 2] -->
                         <div class="tag-container">
                             <span class="tag">LLM Agents</span><span class="tag">MCP</span>
                             <span class="tag">GitHub Copilot</span><span class="tag">Python</span>
                             <span class="tag">Bash/Shell</span>
                         </div>
                     </div>
-                    <!--[cite: 2] -->
-                    <div class="skill-box">
+                    <div class="skill-box stagg-item">
                         <h4>Security & Monitoring</h4>
+                        <!--[cite: 2] -->
                         <div class="tag-container">
                             <span class="tag">DevSecOps</span><span class="tag">Prometheus</span>
                             <span class="tag">Grafana</span><span class="tag">RBAC</span>
@@ -474,66 +534,64 @@
                     </div>
                 </div>
 
-                <h2 class="section-header" style="margin-top: 2rem;"><i class="fas fa-certificate"></i> Certifications</h2>
-                <div class="skill-box">
+                <h2 class="section-header stagg-item" style="margin-top: 2.5rem;"><i class="fas fa-certificate"></i> Certifications</h2>
+                <div class="skill-box stagg-item">
                     <div class="tag-container" style="gap: 15px;">
                         <!--[cite: 2] -->
-                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 RHCSA</span>
+                        <span class="tag" style="background: rgba(188, 19, 254, 0.1); border-color: var(--accent); color: #fff;">🏆 RHCSA</span>
                         <!--[cite: 2] -->
-                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 AWS Cloud Practitioner</span>
+                        <span class="tag" style="background: rgba(188, 19, 254, 0.1); border-color: var(--accent); color: #fff;">🏆 AWS Cloud Practitioner</span>
                         <!--[cite: 2] -->
-                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 Azure Fundamentals (AZ-900)</span>
+                        <span class="tag" style="background: rgba(188, 19, 254, 0.1); border-color: var(--accent); color: #fff;">🏆 Azure Fundamentals (AZ-900)</span>
                         <!--[cite: 2] -->
-                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 Terraform Associate</span>
+                        <span class="tag" style="background: rgba(188, 19, 254, 0.1); border-color: var(--accent); color: #fff;">🏆 Terraform Associate</span>
                         <!--[cite: 2] -->
-                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 Claude Code Architect</span>
+                        <span class="tag" style="background: rgba(188, 19, 254, 0.1); border-color: var(--accent); color: #fff;">🏆 Claude Code Architect</span>
                     </div>
                 </div>
             </div>
 
             <!-- EXPERIENCE TAB -->
             <div id="experience" class="tab-content">
-                <h2 class="section-header"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+                <h2 class="section-header stagg-item"><i class="fas fa-briefcase"></i> Professional Experience</h2>
                 
-                <div class="exp-card">
+                <div class="exp-card stagg-item">
                     <div class="exp-header">
                         <div>
                             <!--[cite: 2] -->
                             <h3>DevOps Engineer</h3>
                             <!--[cite: 2] -->
-                            <p style="color: var(--text-main); margin-top: 5px;">Accenture</p>
+                            <p>Accenture</p>
                         </div>
                         <!--[cite: 2] -->
                         <span>Feb 2024 - Present</span>
                     </div>
                     <ul class="exp-list">
                         <!--[cite: 2] -->
-                        <li>Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability across dev, test, and staging.</li>
+                        <li class="stagg-item">Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability across dev, test, and staging.</li>
                         <!--[cite: 2] -->
-                        <li>Automated infrastructure provisioning and patching with Ansible and Terraform (IaC), reducing patching time by 75%.</li>
+                        <li class="stagg-item">Automated infrastructure provisioning and patching with Ansible and Terraform (IaC), reducing patching time by 75%.</li>
                         <!--[cite: 2] -->
-                        <li>Built and optimized CI/CD pipelines (Jenkins, GitHub Actions), accelerating deployments by 50%+.</li>
+                        <li class="stagg-item">Built and optimized CI/CD pipelines (Jenkins, GitHub Actions), accelerating deployments by 50%+.</li>
                         <!--[cite: 2] -->
-                        <li>Implemented centralized monitoring (Prometheus, Grafana), reducing Mean Time to Resolution (MTTR) by 30-50%.</li>
+                        <li class="stagg-item">Implemented centralized monitoring (Prometheus, Grafana), reducing Mean Time to Resolution (MTTR) by 30-50%.</li>
                         <!--[cite: 2] -->
-                        <li>Deployed GitOps workflows with ArgoCD for zero-downtime, version-controlled Kubernetes releases.</li>
+                        <li class="stagg-item">Deployed GitOps workflows with ArgoCD for zero-downtime, version-controlled Kubernetes releases.</li>
                         <!--[cite: 2] -->
-                        <li>Integrated DevSecOps practices - security scanning, policy-as-code, and RBAC enforcement in CI/CD pipelines.</li>
+                        <li class="stagg-item">Integrated DevSecOps practices - security scanning, policy-as-code, and RBAC enforcement in CI/CD pipelines.</li>
                         <!--[cite: 2] -->
-                        <li>Authored RCA reports, runbooks, and SRE documentation, improving incident response.</li>
-                        <!--[cite: 2] -->
-                        <li>Leveraged AI tools (GitHub Copilot, LLM agents) to accelerate IaC development and incident triage.</li>
+                        <li class="stagg-item">Leveraged AI tools (GitHub Copilot, LLM agents) to accelerate IaC development and incident triage.</li>
                     </ul>
                 </div>
             </div>
 
             <!-- PROJECTS TAB -->
             <div id="projects" class="tab-content">
-                <h2 class="section-header"><i class="fas fa-rocket"></i> Featured Projects</h2>
-                <p style="color: var(--primary); margin-bottom: 1.5rem; font-size: 0.9rem;">Click cards to expand technical details</p>
+                <h2 class="section-header stagg-item"><i class="fas fa-rocket"></i> Featured Projects</h2>
+                <p class="stagg-item" style="color: var(--primary); margin-bottom: 2rem; font-size: 0.95rem;">Click cards to expand technical details</p>
 
                 <!-- Project 1 -->
-                <div class="project-card" onclick="toggleProject(this)">
+                <div class="project-card stagg-item" onclick="toggleProject(this)">
                     <div class="project-header">
                         <div>
                             <!--[cite: 2] -->
@@ -556,7 +614,7 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card" onclick="toggleProject(this)">
+                <div class="project-card stagg-item" onclick="toggleProject(this)">
                     <div class="project-header">
                         <div>
                             <!--[cite: 2] -->
@@ -583,13 +641,39 @@
     </div>
 
     <script>
-        // Tab Switching Logic
-        function switchTab(tabId) {
+        // Trigger animations for the initially active tab
+        triggerAnimations('skills');
+
+        // Tab Switching Logic with Staggered Animations
+        function switchTab(tabId, btnElement) {
+            // Remove active states
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             
-            event.currentTarget.classList.add('active');
+            // Set new active states
+            btnElement.classList.add('active');
             document.getElementById(tabId).classList.add('active');
+
+            // Trigger stagger animations for the new tab
+            triggerAnimations(tabId);
+        }
+
+        // Function to handle staggered fade-in animations
+        function triggerAnimations(tabId) {
+            const elements = document.querySelectorAll(`#${tabId} .stagg-item`);
+            
+            // Reset animations
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.classList.remove('animate-in');
+            });
+
+            // Apply staggered delays and trigger animation
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animate-in');
+                }, index * 100); // 100ms delay between each element
+            });
         }
 
         // Project Accordion Logic
