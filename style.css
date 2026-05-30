@@ -1,7 +1,6 @@
 :root {
-    /* Pure Dark UI Palette */
     --bg-page: #080b12;        
-    --bg-card: #111827;        
+    --bg-card: rgba(17, 24, 39, 0.7);        
     
     --text-white: #ffffff;
     --text-gray: #94a3b8;
@@ -9,7 +8,7 @@
     --neon-cyan: #00e5ff;
     --neon-magenta: #c026d3;
     
-    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-subtle: rgba(255, 255, 255, 0.08);
 }
 
 * {
@@ -19,16 +18,15 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* SCROLLING IS BACK */
 body {
     background-color: var(--bg-page);
     color: var(--text-white);
     overflow-x: hidden; 
     line-height: 1.6;
-    /* Ambient Backlight Highlights fixed to the background */
+    /* Static Neon Background Glow */
     background-image: 
-        radial-gradient(circle at 15% 20%, rgba(0, 229, 255, 0.08), transparent 30%),
-        radial-gradient(circle at 85% 60%, rgba(192, 38, 211, 0.05), transparent 30%),
+        radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.1), transparent 30%),
+        radial-gradient(circle at 90% 70%, rgba(192, 38, 211, 0.08), transparent 30%),
         radial-gradient(circle at 50% 100%, rgba(0, 229, 255, 0.05), transparent 40%);
     background-attachment: fixed;
 }
@@ -38,7 +36,8 @@ body {
     position: fixed;
     top: 0; left: 0; width: 100%;
     background-color: rgba(8, 11, 18, 0.85);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-subtle);
     z-index: 1000;
 }
@@ -52,12 +51,13 @@ body {
     align-items: center;
 }
 
+/* GUARANTEED CURSIVE LOGO */
 .brand-logo {
-    font-family: 'Caveat', cursive;
-    font-size: 2.5rem;
+    font-family: 'Caveat', cursive, sans-serif !important;
+    font-size: 3rem;
     font-weight: 700;
     color: #fff;
-    text-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.4);
     line-height: 1;
 }
 
@@ -75,7 +75,7 @@ body {
 .nav-links a {
     color: var(--text-gray);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: 1px;
     transition: color 0.3s ease;
@@ -83,14 +83,14 @@ body {
 
 .nav-links a:hover, .nav-links a.active {
     color: var(--neon-cyan);
-    text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
 }
 
 .btn-download-small {
     background-color: rgba(0, 229, 255, 0.1);
     color: var(--neon-cyan) !important;
-    border: 1px solid rgba(0, 229, 255, 0.3);
-    padding: 8px 15px;
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    padding: 8px 18px;
     border-radius: 6px;
     transition: all 0.3s ease !important;
 }
@@ -98,14 +98,14 @@ body {
 .btn-download-small:hover {
     background-color: var(--neon-cyan);
     color: #000 !important;
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
 }
 
 /* --- MAIN CONTAINER --- */
 .main-container {
     max-width: 1000px;
     margin: 0 auto;
-    padding-top: 100px; /* Space for the fixed navbar */
+    padding-top: 120px; 
 }
 
 .section-padding {
@@ -113,7 +113,7 @@ body {
 }
 
 .section-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -123,10 +123,11 @@ body {
 }
 
 .section-title i {
-    color: var(--neon-magenta);
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
 }
 
-/* --- BENTO CARDS --- */
+/* --- BENTO CARDS (Glassmorphism) --- */
 .bento-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -138,43 +139,45 @@ body {
 
 .bento-card {
     background-color: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
     padding: 35px;
     border: 1px solid var(--border-subtle);
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover Backlight Effect */
 .bento-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(0, 229, 255, 0.4);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 25px rgba(0, 229, 255, 0.05);
+    border-color: rgba(0, 229, 255, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.1);
 }
 
 .bento-card h4 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
     margin-bottom: 20px;
     color: var(--text-white);
 }
 
-/* --- HERO BENTO (Special overrides) --- */
+/* --- HERO BENTO --- */
 .hero-bento {
     padding: 50px;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, rgba(17, 24, 39, 1) 0%, rgba(8, 11, 18, 1) 100%);
-    border-top: 1px solid rgba(0, 229, 255, 0.2);
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(8, 11, 18, 0.9) 100%);
+    border-top: 1px solid rgba(0, 229, 255, 0.3);
 }
 
 .greeting {
-    font-family: 'Caveat', cursive;
     color: var(--neon-cyan);
-    font-size: 1.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
     margin-bottom: 10px;
 }
 
 .user-name {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 15px;
@@ -182,10 +185,11 @@ body {
 
 .user-role {
     color: var(--neon-magenta);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(192, 38, 211, 0.3);
 }
 
 .user-summary {
@@ -204,7 +208,7 @@ body {
 
 .social-icon {
     width: 45px; height: 45px;
-    background-color: rgba(255,255,255,0.03);
+    background-color: rgba(255,255,255,0.05);
     border: 1px solid var(--border-subtle);
     display: flex; justify-content: center; align-items: center;
     border-radius: 10px;
@@ -217,7 +221,7 @@ body {
 .social-icon:hover {
     background-color: var(--neon-cyan);
     color: #000;
-    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.5);
     border-color: var(--neon-cyan);
     transform: translateY(-3px);
 }
@@ -238,23 +242,22 @@ body {
     font-weight: 700;
     font-size: 1rem;
     transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
 }
 
 .btn-primary:hover {
-    box-shadow: 0 8px 25px rgba(0, 229, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 229, 255, 0.6);
     transform: translateY(-2px);
 }
 
 .location-badge {
     color: var(--text-gray);
-    font-size: 0.95rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 .location-badge i { color: var(--neon-magenta); }
-
 
 /* --- TAGS & LISTS --- */
 .tag-group {
@@ -269,16 +272,15 @@ body {
     border: 1px solid rgba(0, 229, 255, 0.2);
     padding: 8px 14px;
     border-radius: 6px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 .cert-tag {
     background-color: rgba(192, 38, 211, 0.05);
     color: #fff;
-    border-color: rgba(192, 38, 211, 0.3);
+    border-color: rgba(192, 38, 211, 0.4);
 }
-
 .cert-tag i { color: var(--neon-magenta); margin-right: 5px;}
 
 .card-header {
@@ -304,7 +306,7 @@ body {
     background: rgba(255,255,255,0.05);
     padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-gray);
     border: 1px solid var(--border-subtle);
 }
@@ -331,16 +333,3 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg-page); }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--neon-cyan); }
-
-
-/* --- SCROLL REVEAL ANIMATIONS --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
