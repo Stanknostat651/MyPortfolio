@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumara Subramanyam Reddy Byreddy | DevOps Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <h1>KSRB.</h1>
+        <div>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h2>Hi, my name is</h2>
+        <h1>Kumara Subramanyam Reddy Byreddy.</h1>
+        <h1>I build resilient cloud infrastructures.</h1>
+        <p>I'm a DevOps & SRE Engineer based in Bengaluru, specializing in Kubernetes, AWS, and DevSecOps. I leverage AIOps and IaC to reduce deployment times and improve system reliability.</p>
+        <div class="contact-info" style="margin-bottom: 2rem; color: var(--text-muted);">
+            <p>📧 subbubyreddy@gmail.com | 📞 +91 9177961543 | 🔗 <a href="#" style="color: var(--primary);">LinkedIn</a></p>
+        </div>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="skills-container">
+            <span class="skill-tag">AWS (EC2, EKS, S3)</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">Kubernetes & EKS</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Jenkins & GitHub Actions</span>
+            <span class="skill-tag">ArgoCD & GitOps</span>
+            <span class="skill-tag">Prometheus & Grafana</span>
+            <span class="skill-tag">Python & Bash</span>
+            <span class="skill-tag">LLM Agents & AIOps</span>
+            <span class="skill-tag">DevSecOps</span>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="card" style="cursor: default;">
+            <h3>DevOps Engineer @ Accenture</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">February 2024 - Present</p>
+            <ul>
+                <li style="margin-left: 1.5rem;">Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability.</li>
+                <li style="margin-left: 1.5rem;">Automated provisioning with Ansible and Terraform, reducing patching time by 75%.</li>
+                <li style="margin-left: 1.5rem;">Optimized CI/CD pipelines, accelerating deployments by 50%+.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Key Projects</h2>
+        <p style="margin-bottom: 2rem; color: var(--accent);">* Click cards to expand details</p>
+        
+        <div class="card-grid">
+            <div class="card" onclick="openModal('Jira MCP Server on Kubernetes', 'Architected a production-grade AI integration platform using the Model Context Protocol (MCP). Enabled LLM agents (GitHub Copilot) to perform Jira operations via natural language across 22 automated tools. Implemented multi-user PAT authentication and hardened Docker images.')">
+                <h3>Jira MCP Server (AI Platform)</h3>
+                <p>AI-powered automation platform integrating LLM agents with Jira via natural language.</p>
+            </div>
+
+            <div class="card" onclick="openModal('End-to-End DevOps Cloud Architecture', 'Provisioned production AWS infrastructure (VPC, EKS, EC2, S3, IAM) using Terraform. Containerized workloads with Docker and implemented GitOps with ArgoCD for zero-downtime deployments. Configured full Prometheus/Grafana observability stack.')">
+                <h3>AWS Cloud Architecture</h3>
+                <p>Production-grade AWS infrastructure provisioned with Terraform and GitOps (ArgoCD).</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <h2 id="modalTitle" style="color: var(--primary); margin-bottom: 1rem;">Project Title</h2>
+            <p id="modalDesc">Project description goes here...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
