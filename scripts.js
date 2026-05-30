@@ -1,47 +1,32 @@
-// Ensure animations trigger on initial load for the visible tab
-document.addEventListener('DOMContentLoaded', () => {
-    triggerAnimations('skills');
-});
+// Uptime Clock Simulation
+let seconds = 0;
 
-// Tab Switching Logic with Staggered Animations
-function switchTab(tabId, btnElement) {
-    // Remove active states from all buttons and content panels
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+setInterval(() => {
+    seconds++;
+    const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
+    const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+    const secs = String(seconds % 60).padStart(2, '0');
     
-    // Set new active states for the clicked button and target content
-    btnElement.classList.add('active');
-    document.getElementById(tabId).classList.add('active');
+    // Update the DOM element with the new time
+    document.getElementById('uptime-clock').innerText = `${hrs}:${mins}:${secs}`;
+}, 1000);
 
-    // Trigger stagger animations for the newly active tab
-    triggerAnimations(tabId);
-}
+// Terminal Typing Effect Simulation
+const terminalOutput = document.getElementById('terminal-output');
 
-// Function to handle staggered fade-in animations for internal elements
-function triggerAnimations(tabId) {
-    const elements = document.querySelectorAll(`#${tabId} .stagg-item`);
-    
-    // Reset animations instantly
-    elements.forEach(el => {
-        el.style.opacity = '0';
-        el.classList.remove('animate-in');
-    });
+const commands = [
+    "> initializing cluster monitoring...",
+    "> pinging aws us-east-1...",
+    "> pinging azure central-india...",
+    "> fetching RHCSA validation keys...",
+    "> all systems operational."
+];
 
-    // Apply staggered delays and trigger animation
-    elements.forEach((el, index) => {
-        setTimeout(() => {
-            el.classList.add('animate-in');
-        }, index * 100); // 100ms delay between each element popping up
-    });
-}
+let cmdIndex = 0;
 
-// Project Accordion Logic
-function toggleProject(card) {
-    // Close any other open project cards
-    document.querySelectorAll('.project-card').forEach(c => {
-        if (c !== card) c.classList.remove('expanded');
-    });
-    
-    // Toggle the clicked card
-    card.classList.toggle('expanded');
-}
+setInterval(() => {
+    // Cycle to the next command in the array
+    cmdIndex = (cmdIndex + 1) % commands.length;
+    // Update the DOM element
+    terminalOutput.innerText = commands[cmdIndex];
+}, 3500);
