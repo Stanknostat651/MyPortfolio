@@ -3,161 +3,581 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bellam Hemanth Kumar Reddy | DevOps & SRE Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Bellam Hemanth Kumar Reddy | DevOps Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern App-Style Dashboard CSS */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
+
+        :root {
+            --bg-dark: #0f172a;
+            --bg-panel: #1e293b;
+            --primary: #38bdf8;
+            --primary-hover: #0ea5e9;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --accent: #818cf8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Stops full-page scrolling */
+        }
+
+        /* Main App Container */
+        .app-container {
+            width: 95vw;
+            height: 90vh;
+            max-width: 1400px;
+            background: var(--bg-panel);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            animation: appLoad 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Left Banner (Fixed) */
+        .banner {
+            width: 35%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--border);
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--primary);
+        }
+
+        .banner h1 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .banner h2 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .banner p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            list-style: none;
+            margin-bottom: auto;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .contact-info i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .download-btn {
+            background: var(--primary);
+            color: #0f172a;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .download-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+        }
+
+        /* Right Content Area */
+        .content-area {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-dark);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            padding: 0 3rem;
+            background: var(--bg-panel);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 2rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px 3px 0 0;
+            box-shadow: 0 -2px 10px rgba(56, 189, 248, 0.5);
+        }
+
+        /* Tab Content Screens */
+        .tab-content {
+            flex: 1;
+            padding: 3rem;
+            overflow-y: auto; /* Internal scrolling only if needed */
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section-header {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header i {
+            color: var(--accent);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-box {
+            background: var(--bg-panel);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-box h4 {
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Experience List */
+        .exp-card {
+            background: var(--bg-panel);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-header h3 {
+            color: var(--primary);
+        }
+        
+        .exp-header span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .exp-list {
+            list-style: none;
+        }
+
+        .exp-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .exp-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Projects - Accordion Style */
+        .project-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-header {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .project-header h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .project-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .project-toggle {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .project-details {
+            max-height: 0;
+            padding: 0 1.5rem;
+            opacity: 0;
+            transition: all 0.4s ease;
+            background: var(--bg-dark);
+        }
+
+        .project-card.expanded {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .project-card.expanded .project-toggle {
+            transform: rotate(180deg);
+        }
+
+        .project-card.expanded .project-details {
+            max-height: 500px;
+            padding: 1.5rem;
+            opacity: 1;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-details ul {
+            list-style: none;
+        }
+
+        .project-details li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .project-details li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        /* Animations */
+        @keyframes appLoad {
+            0% { opacity: 0; transform: scale(0.95) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateX(10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+    </style>
 </head>
 <body>
 
-    <div class="bg-shape bg-shape-1"></div>
-    <div class="bg-shape bg-shape-2"></div>
-
-    <nav>
-        <div class="nav-logo">BHKR<span>.</span></div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#certifications">Certifications</a>
-        </div>
-    </nav>
-
-    <section class="hero reveal">
-        <p class="greeting">Hello, I am</p>
-        <h1>Bellam Hemanth Kumar Reddy</h1>
-        <h2 class="typing-container">I specialize in <span id="typing-text"></span><span class="cursor">|</span></h2>
+    <div class="app-container">
         
-        <p class="hero-summary">
-            DevOps / SRE Engineer with hands-on experience in Site Reliability Engineering, DevSecOps, AIOps, and cloud infrastructure. Proven track record of reducing patching time by 75% and improving MTTR by 30-50% through IaC and automation.
-        </p>
+        <!-- FIXED LEFT BANNER -->
+        <div class="banner">
+            <div class="logo"><i class="fas fa-terminal"></i> KSRB.</div>
+            
+            <h1>Kumara Subramanyam Reddy Byreddy</h1>
+            <h2>DevOps Engineer | SRE | DevSecOps | AIOps</h2>
+            
+            <!--[cite: 2] -->
+            <p>DevOps / SRE Engineer with hands-on experience in Site Reliability Engineering, DevSecOps, AIOps, and cloud infrastructure. Proven track record of reducing patching time by 75% and accelerating deployments by 50%+.</p>
 
-        <div class="contact-badges">
-            <span><i class="fas fa-map-marker-alt"></i> Tirupati, India</span>
-            <span><i class="fas fa-envelope"></i> hemanthkumarb651@gmail.com</span>
-            <span><i class="fas fa-phone"></i> +91-7674833609</span>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> Bengaluru, India</li>
+                <li><i class="fas fa-envelope"></i> subbubyreddy@gmail.com</li>
+                <li><i class="fas fa-phone"></i> +91 9177961543</li>
+                <li><i class="fab fa-linkedin"></i> LinkedIn Profile</li>
+            </ul>
+
+            <!-- Working Download Button -->
+            <!-- Ensure your actual PDF file is named "resume.pdf" and placed in the same folder -->
+            <a href="resume.pdf" download="Kumara_Subramanyam_Reddy_Resume.pdf" class="download-btn">
+                <i class="fas fa-file-download"></i> Download Resume
+            </a>
         </div>
 
-        <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">Explore My Work</a>
-            <a href="#experience" class="btn btn-secondary">View Experience</a>
-        </div>
-    </section>
+        <!-- RIGHT CONTENT AREA -->
+        <div class="content-area">
+            
+            <!-- TABS -->
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="switchTab('skills')">Skills & Certs</button>
+                <button class="tab-btn" onclick="switchTab('experience')">Experience</button>
+                <button class="tab-btn" onclick="switchTab('projects')">Key Projects</button>
+            </div>
 
-    <section id="skills" class="reveal">
-        <h2 class="section-title">Technical <span>Arsenal</span></h2>
-        <div class="skills-grid">
-            <div class="skill-category glass-card">
-                <h3><i class="fas fa-cloud"></i> Cloud & CI/CD</h3>
-                <div class="tags">
-                    <span>AWS (EC2, EKS, S3, VPC, IAM, Route53)</span><span>Azure</span>
-                    <span>Jenkins</span><span>GitHub Actions</span><span>ArgoCD</span><span>GitOps</span>
-                </div>
-            </div>
-            <div class="skill-category glass-card">
-                <h3><i class="fas fa-box"></i> Containers & IaC</h3>
-                <div class="tags">
-                    <span>Docker</span><span>Kubernetes</span><span>EKS</span><span>Kustomize</span>
-                    <span>Terraform</span><span>Ansible</span>
-                </div>
-            </div>
-            <div class="skill-category glass-card">
-                <h3><i class="fas fa-shield-alt"></i> Security & Monitoring</h3>
-                <div class="tags">
-                    <span>DevSecOps</span><span>Container Hardening</span><span>RBAC</span>
-                    <span>Prometheus</span><span>Grafana</span><span>Centralized Logging</span>
-                </div>
-            </div>
-            <div class="skill-category glass-card">
-                <h3><i class="fas fa-robot"></i> AI/MLOps & Scripting</h3>
-                <div class="tags">
-                    <span>LLM Agents</span><span>Model Context Protocol (MCP)</span><span>GitHub Copilot</span>
-                    <span>Python</span><span>Bash/Shell</span><span>Linux/RHEL</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="reveal">
-        <h2 class="section-title">Professional <span>Experience</span></h2>
-        <div class="timeline">
-            <div class="timeline-item glass-card">
-                <div class="timeline-header">
-                    <div>
-                        <h3>DevOps Engineer</h3>
-                        <h4>Accenture</h4>
+            <!-- SKILLS TAB -->
+            <div id="skills" class="tab-content active">
+                <h2 class="section-header"><i class="fas fa-code"></i> Technical Arsenal</h2>
+                <div class="skills-grid">
+                    <!--[cite: 2] -->
+                    <div class="skill-box">
+                        <h4>Cloud & CI/CD</h4>
+                        <div class="tag-container">
+                            <span class="tag">AWS (EC2, EKS, S3)</span><span class="tag">Azure</span>
+                            <span class="tag">Jenkins</span><span class="tag">GitHub Actions</span>
+                            <span class="tag">ArgoCD</span><span class="tag">GitOps</span>
+                        </div>
                     </div>
-                    <div class="timeline-date">Feb 2024 - Present</div>
+                    <!--[cite: 2] -->
+                    <div class="skill-box">
+                        <h4>Containers & IaC</h4>
+                        <div class="tag-container">
+                            <span class="tag">Docker</span><span class="tag">Kubernetes</span>
+                            <span class="tag">Terraform</span><span class="tag">Ansible</span>
+                            <span class="tag">Kustomize</span>
+                        </div>
+                    </div>
+                    <!--[cite: 2] -->
+                    <div class="skill-box">
+                        <h4>AI/MLOps & Scripting</h4>
+                        <div class="tag-container">
+                            <span class="tag">LLM Agents</span><span class="tag">MCP</span>
+                            <span class="tag">GitHub Copilot</span><span class="tag">Python</span>
+                            <span class="tag">Bash/Shell</span>
+                        </div>
+                    </div>
+                    <!--[cite: 2] -->
+                    <div class="skill-box">
+                        <h4>Security & Monitoring</h4>
+                        <div class="tag-container">
+                            <span class="tag">DevSecOps</span><span class="tag">Prometheus</span>
+                            <span class="tag">Grafana</span><span class="tag">RBAC</span>
+                        </div>
+                    </div>
                 </div>
-                <ul class="experience-list">
-                    <li>Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability across dev, test, and staging.</li>
-                    <li>Automated infrastructure provisioning and patching with Ansible and Terraform (IaC), reducing patching time by 75%.</li>
-                    <li>Built and optimized CI/CD pipelines (Jenkins, GitHub Actions), accelerating deployments by 50%+.</li>
-                    <li>Implemented centralized monitoring (Prometheus, Grafana), reducing Mean Time to Resolution (MTTR) by 30-50%.</li>
-                    <li>Deployed GitOps workflows with ArgoCD for zero-downtime, version-controlled Kubernetes releases.</li>
-                    <li>Integrated DevSecOps practices - security scanning, policy-as-code, and RBAC enforcement in CI/CD pipelines.</li>
-                    <li>Authored RCA reports, runbooks, and SRE documentation, improving incident response and team onboarding.</li>
-                    <li>Leveraged AI tools (GitHub Copilot, LLM agents) to accelerate IaC development, code reviews, and incident triage.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
-    <section id="projects" class="reveal">
-        <h2 class="section-title">Key <span>Projects</span></h2>
-        <p class="subtitle">Click cards for technical depth</p>
-        
-        <div class="project-grid">
-            <div class="project-card glass-card" onclick="openModal('Jira MCP Server on Kubernetes', '<ul><li>Architected and deployed a production-grade AI integration platform using the Model Context Protocol (MCP), enabling LLM agents (GitHub Copilot) to perform Jira operations via natural language across 22 automated tools.</li><li>Implemented multi-user PAT authentication, hardened Docker image (non-root, read-only FS, dropped capabilities), and Kubernetes manifests with Kustomize, health probes, and resource limits.</li><li>Designed resilient API layer with exponential backoff retries; authored prompt engineering templates (.agent.md) and onboarding runbooks for team-wide AI adoption.</li></ul>')">
-                <div class="project-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>Jira MCP Server (AI Platform)</h3>
-                <p>AI-integrated automation platform bridging LLM agents with Jira via natural language.</p>
-                <span class="view-more">View Details <i class="fas fa-arrow-right"></i></span>
+                <h2 class="section-header" style="margin-top: 2rem;"><i class="fas fa-certificate"></i> Certifications</h2>
+                <div class="skill-box">
+                    <div class="tag-container" style="gap: 15px;">
+                        <!--[cite: 2] -->
+                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 RHCSA</span>
+                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 AWS Cloud Practitioner</span>
+                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 Azure Fundamentals (AZ-900)</span>
+                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 Terraform Associate</span>
+                        <span class="tag" style="background: rgba(129, 140, 248, 0.1); border-color: var(--accent); color: var(--text-main);">🏆 Claude Code Architect</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="project-card glass-card" onclick="openModal('End-to-End DevOps Cloud Architecture', '<ul><li>Provisioned production AWS infrastructure (VPC, EKS, EC2, S3, IAM, Route53) using Terraform.</li><li>Containerized workloads with Docker/Kubernetes (EKS); implemented GitOps (ArgoCD) for zero-downtime deployments.</li><li>Configured Route53 DNS, Ingress Controllers, and Prometheus/Grafana observability stack.</li></ul>')">
-                <div class="project-icon"><i class="fab fa-aws"></i></div>
-                <h3>AWS Cloud Architecture</h3>
-                <p>Production-ready AWS infrastructure with Terraform provisioning and ArgoCD GitOps.</p>
-                <span class="view-more">View Details <i class="fas fa-arrow-right"></i></span>
+            <!-- EXPERIENCE TAB -->
+            <div id="experience" class="tab-content">
+                <h2 class="section-header"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+                
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3>DevOps Engineer</h3>
+                            <!--[cite: 2] -->
+                            <p style="color: var(--text-main); margin-top: 5px;">Accenture</p>
+                        </div>
+                        <!--[cite: 2] -->
+                        <span>Feb 2024 - Present</span>
+                    </div>
+                    <ul class="exp-list">
+                        <!--[cite: 2] -->
+                        <li>Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability across dev, test, and staging.</li>
+                        <li>Automated infrastructure provisioning and patching with Ansible and Terraform (IaC), reducing patching time by 75%.</li>
+                        <li>Built and optimized CI/CD pipelines (Jenkins, GitHub Actions), accelerating deployments by 50%+.</li>
+                        <li>Implemented centralized monitoring (Prometheus, Grafana), reducing Mean Time to Resolution (MTTR) by 30-50%.</li>
+                        <li>Deployed GitOps workflows with ArgoCD for zero-downtime, version-controlled Kubernetes releases.</li>
+                        <li>Integrated DevSecOps practices - security scanning, policy-as-code, and RBAC enforcement in CI/CD pipelines.</li>
+                        <li>Authored RCA reports, runbooks, and SRE documentation, improving incident response.</li>
+                        <li>Leveraged AI tools (GitHub Copilot, LLM agents) to accelerate IaC development and incident triage.</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section id="certifications" class="reveal">
-        <h2 class="section-title">Certifications & <span>Awards</span></h2>
-        <div class="split-grid">
-            <div class="glass-card list-card">
-                <h3><i class="fas fa-certificate"></i> Certifications</h3>
-                <ul>
-                    <li><strong>Red Hat:</strong> Certified System Administrator (RHCSA)</li>
-                    <li><strong>AWS:</strong> Certified Cloud Practitioner</li>
-                    <li><strong>Microsoft:</strong> Certified: Azure Fundamentals (AZ-900)</li>
-                    <li><strong>HashiCorp:</strong> Certified: Terraform Associate</li>
-                    <li><strong>Anthropic:</strong> Claude Code Architect</li>
-                </ul>
-            </div>
-            <div class="glass-card list-card">
-                <h3><i class="fas fa-trophy"></i> Awards & Education</h3>
-                <ul>
-                    <li><strong>Pinnacle Award:</strong> Recognized for continuous learning and performance.</li>
-                    <li><strong>Multi-Dimensional Skill Champion:</strong> Recognized for cross-functional excellence.</li>
-                    <li style="margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
-                        <strong>B.E., 2023</strong> - Sathyabama Institute of Science and Technology
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+            <!-- PROJECTS TAB -->
+            <!--[cite: 2] -->
+            <div id="projects" class="tab-content">
+                <h2 class="section-header"><i class="fas fa-rocket"></i> Featured Projects</h2>
+                <p style="color: var(--primary); margin-bottom: 1.5rem; font-size: 0.9rem;">Click cards to expand technical details</p>
 
-    <div class="modal-overlay" id="projectModal">
-        <div class="modal-content glass-card">
-            <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
-            <h2 id="modalTitle">Project Title</h2>
-            <div id="modalDesc" class="modal-body"></div>
+                <!-- Project 1 -->
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-header">
+                        <div>
+                            <h3>Jira MCP Server on Kubernetes (AI Platform)</h3>
+                            <p>AI-Powered Automation Platform using Model Context Protocol</p>
+                        </div>
+                        <i class="fas fa-chevron-down project-toggle"></i>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Architected and deployed a production-grade AI integration platform using the Model Context Protocol (MCP), enabling LLM agents (GitHub Copilot) to perform Jira operations via natural language across 22 automated tools.</li>
+                            <li>Implemented multi-user PAT authentication, hardened Docker image (non-root, read-only FS, dropped capabilities), and Kubernetes manifests with Kustomize, health probes, and resource limits.</li>
+                            <li>Designed resilient API layer with exponential backoff retries; authored prompt engineering templates (.agent.md) and onboarding runbooks for team-wide AI adoption.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-header">
+                        <div>
+                            <h3>End-to-End DevOps Cloud Architecture</h3>
+                            <p>Production AWS Infrastructure & GitOps Integration</p>
+                        </div>
+                        <i class="fas fa-chevron-down project-toggle"></i>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Provisioned production AWS infrastructure (VPC, EKS, EC2, S3, IAM, Route53) using Terraform.</li>
+                            <li>Containerized workloads with Docker/Kubernetes (EKS); implemented GitOps (ArgoCD) for zero-downtime deployments.</li>
+                            <li>Configured Route53 DNS, Ingress Controllers, and Prometheus/Grafana observability stack.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Remove active class from all buttons and contents
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button and target content
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Project Accordion Logic
+        function toggleProject(card) {
+            // Close other open cards
+            document.querySelectorAll('.project-card').forEach(c => {
+                if (c !== card) c.classList.remove('expanded');
+            });
+            // Toggle clicked card
+            card.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>
