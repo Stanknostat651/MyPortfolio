@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hemanth's Portfolio | DevOps Engineer</title>
-    <!-- Premium Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Included Caveat for cursive logo, Outfit for modern text -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,13 +21,15 @@
     <!-- Frosted Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Hemanth<span>.</span></div>
+            <!-- New Glowing Cursive Logo -->
+            <div class="logo">BHK<span>.</span></div>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="HemanthKumarReddy_Devops_2.pdf" download class="btn-nav"><i class="fas fa-download"></i> Resume</a></li>
+                <!-- Fixed Download Link -->
+                <li><a href="HemanthKumarReddy_Devops_2.pdf" download="Bellam_Hemanth_Kumar_Reddy_Resume.pdf" class="btn-nav"><i class="fas fa-download"></i> Resume</a></li>
             </ul>
         </div>
     </nav>
@@ -39,43 +40,56 @@
         <!-- Left: Glassmorphism Profile Panel -->
         <div class="hero-content glass-panel" data-tilt>
             <p class="greeting">Hello World, I'm</p>
-            <h1 class="name">Bellam Hemanth<br><span class="text-gradient">Kumar Reddy</span></h1>
+            <h1 class="name">Bellam Hemanth<br><span class="text-gradient">Kumar Reddy</span></h1><!--[cite: 3]-->
             <h2 class="dynamic-role">I am a <span class="typewriter"></span><span class="cursor">|</span></h2>
             
             <p class="summary">
-                DevOps / SRE Engineer specializing in cloud infrastructure, DevSecOps, and AIOps. Proven track record of reducing patching time by 75% and accelerating deployments by 50%+.
+                DevOps / SRE Engineer specializing in cloud infrastructure, DevSecOps, and AIOps. Proven track record of reducing patching time by 75% and accelerating deployments by 50%+[cite: 3].
             </p>
 
             <div class="social-tray">
-                <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:hemanthkumarb651@gmail.com" class="social-icon mail"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="social-icon github"><i class="fab fa-github"></i></a>
-                <a href="tel:+917674833609" class="social-icon phone"><i class="fas fa-phone-alt"></i></a>
+                <!-- Redirecting Social Links -->
+                <a href="https://linkedin.com/in/hemanthkumarb651" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a><!--[cite: 3]-->
+                <a href="mailto:hemanthkumarb651@gmail.com" class="social-icon mail"><i class="fas fa-envelope"></i></a><!--[cite: 3]-->
+                <a href="https://github.com/" target="_blank" class="social-icon github"><i class="fab fa-github"></i></a>
+                <a href="tel:+917674833609" class="social-icon phone"><i class="fas fa-phone-alt"></i></a><!--[cite: 3]-->
             </div>
 
             <div class="action-buttons">
                 <a href="#projects" class="btn-primary">View Deployments</a>
-                <a href="#contact" class="contact-info-text"><i class="fas fa-map-marker-alt"></i> Tirupati, India</a>
+                <a href="#contact" class="contact-info-text"><i class="fas fa-map-marker-alt"></i> Tirupati, India</a><!--[cite: 3]-->
             </div>
         </div>
 
         <!-- Right: Orbital Tech Stack Profile -->
         <div class="hero-visual">
             <div class="orbit-system">
-                <!-- Center Profile Image -->
+                
+                <!-- Center Profile Display -->
                 <div class="profile-center">
-                    <img src="https://via.placeholder.com/400x400/1e293b/ffffff?text=Add+Your+Photo" alt="Hemanth Profile">
+                    <!-- Default Profile Pic State -->
+                    <div class="profile-image-state">
+                        <img src="https://via.placeholder.com/400x400/1e293b/ffffff?text=Your+Photo" alt="Hemanth Profile">
+                    </div>
+                    <!-- Hidden Info State (Reveals on Icon Click) -->
+                    <div class="profile-info-state glass-panel hidden">
+                        <button class="close-info"><i class="fas fa-times"></i></button>
+                        <h4 id="orbit-title">Skill Title</h4>
+                        <div id="orbit-content">Skill Details</div>
+                    </div>
                 </div>
                 
                 <!-- Rotating Orbit Ring -->
                 <div class="orbit-ring">
-                    <!-- Icons counter-rotate to stay upright -->
-                    <div class="orbit-node aws"><div class="counter-rotate"><i class="fab fa-aws"></i></div></div>
-                    <div class="orbit-node docker"><div class="counter-rotate"><i class="fab fa-docker"></i></div></div>
-                    <div class="orbit-node python"><div class="counter-rotate"><i class="fab fa-python"></i></div></div>
-                    <div class="orbit-node linux"><div class="counter-rotate"><i class="fab fa-linux"></i></div></div>
-                    <div class="orbit-node k8s"><div class="counter-rotate"><i class="fas fa-dharmachakra"></i></div></div>
+                    <!-- Icons are now clickable buttons -->
+                    <button class="orbit-node aws" data-tech="aws"><div class="counter-rotate"><i class="fab fa-aws"></i></div></button>
+                    <button class="orbit-node docker" data-tech="docker"><div class="counter-rotate"><i class="fab fa-docker"></i></div></button>
+                    <button class="orbit-node python" data-tech="python"><div class="counter-rotate"><i class="fab fa-python"></i></div></button>
+                    <button class="orbit-node linux" data-tech="linux"><div class="counter-rotate"><i class="fab fa-linux"></i></div></button>
+                    <button class="orbit-node k8s" data-tech="k8s"><div class="counter-rotate"><i class="fas fa-dharmachakra"></i></div></button>
                 </div>
+                
+                <p class="orbit-hint"><i class="fas fa-hand-pointer"></i> Click icons for details</p>
             </div>
         </div>
     </section>
@@ -88,11 +102,11 @@
                 <div class="card-icon"><i class="fas fa-cloud"></i></div>
                 <h3>Cloud & CI/CD</h3>
                 <div class="tag-cloud">
-                    <span class="tag">AWS (EC2, EKS, S3)</span>
-                    <span class="tag">Azure</span>
-                    <span class="tag">Jenkins</span>
-                    <span class="tag">GitHub Actions</span>
-                    <span class="tag">ArgoCD</span>
+                    <span class="tag">AWS (EC2, EKS, S3, VPC)</span><!--[cite: 3]-->
+                    <span class="tag">Azure</span><!--[cite: 3]-->
+                    <span class="tag">Jenkins</span><!--[cite: 3]-->
+                    <span class="tag">GitHub Actions</span><!--[cite: 3]-->
+                    <span class="tag">ArgoCD</span><!--[cite: 3]-->
                 </div>
             </div>
 
@@ -100,11 +114,11 @@
                 <div class="card-icon"><i class="fas fa-cubes"></i></div>
                 <h3>Containers & IaC</h3>
                 <div class="tag-cloud">
-                    <span class="tag">Docker</span>
-                    <span class="tag">Kubernetes</span>
-                    <span class="tag">Terraform</span>
-                    <span class="tag">Ansible</span>
-                    <span class="tag">Kustomize</span>
+                    <span class="tag">Docker</span><!--[cite: 3]-->
+                    <span class="tag">Kubernetes</span><!--[cite: 3]-->
+                    <span class="tag">Terraform</span><!--[cite: 3]-->
+                    <span class="tag">Ansible</span><!--[cite: 3]-->
+                    <span class="tag">Kustomize</span><!--[cite: 3]-->
                 </div>
             </div>
 
@@ -112,11 +126,10 @@
                 <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3>Security & AI</h3>
                 <div class="tag-cloud">
-                    <span class="tag">DevSecOps</span>
-                    <span class="tag">Prometheus</span>
-                    <span class="tag">Grafana</span>
-                    <span class="tag">LLM Agents</span>
-                    <span class="tag">MCP</span>
+                    <span class="tag">DevSecOps</span><!--[cite: 3]-->
+                    <span class="tag">Prometheus / Grafana</span><!--[cite: 3]-->
+                    <span class="tag">LLM Agents</span><!--[cite: 3]-->
+                    <span class="tag">MCP</span><!--[cite: 3]-->
                 </div>
             </div>
         </div>
@@ -128,18 +141,17 @@
         <div class="glass-card large-card reveal">
             <div class="card-header">
                 <div>
-                    <h3 class="role-title">DevOps Engineer</h3>
-                    <h4 class="company-name">Accenture</h4>
+                    <h3 class="role-title">DevOps Engineer</h3><!--[cite: 3]-->
+                    <h4 class="company-name">Accenture</h4><!--[cite: 3]-->
                 </div>
-                <div class="duration-badge">Feb 2024 - Present</div>
+                <div class="duration-badge">Feb 2024 - Present</div><!--[cite: 3]-->
             </div>
             <ul class="feature-list">
-                <li>Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability across dev, test, and staging.</li>
-                <li>Automated infrastructure provisioning and patching with Ansible and Terraform (IaC), reducing patching time by 75%.</li>
-                <li>Built and optimized CI/CD pipelines (Jenkins, GitHub Actions), accelerating deployments by 50%+.</li>
-                <li>Implemented centralized monitoring (Prometheus, Grafana), reducing Mean Time to Resolution (MTTR) by 30-50%.</li>
-                <li>Deployed GitOps workflows with ArgoCD for zero-downtime, version-controlled Kubernetes releases.</li>
-                <li>Leveraged AI tools (GitHub Copilot, LLM agents) to accelerate IaC development, code reviews, and incident triage.</li>
+                <li>Managed 6+ Kubernetes and WebLogic environments ensuring 99.9% availability across dev, test, and staging[cite: 3].</li>
+                <li>Automated infrastructure provisioning and patching with Ansible and Terraform (IaC), reducing patching time by 75%[cite: 3].</li>
+                <li>Built and optimized CI/CD pipelines (Jenkins, GitHub Actions), accelerating deployments by 50%+[cite: 3].</li>
+                <li>Implemented centralized monitoring (Prometheus, Grafana), reducing Mean Time to Resolution (MTTR) by 30-50%[cite: 3].</li>
+                <li>Deployed GitOps workflows with ArgoCD for zero-downtime, version-controlled Kubernetes releases[cite: 3].</li>
             </ul>
         </div>
     </section>
@@ -151,34 +163,31 @@
             <div class="glass-card project-card reveal">
                 <div class="project-header">
                     <i class="fas fa-network-wired project-icon"></i>
-                    <div class="links"><a href="#"><i class="fab fa-github"></i></a></div>
                 </div>
-                <h3>Jira MCP Server on Kubernetes</h3>
+                <h3>Jira MCP Server on Kubernetes</h3><!--[cite: 3]-->
                 <p class="highlight-text">AI-Powered Automation Platform</p>
                 <ul class="feature-list small-list">
-                    <li>Architected and deployed a production-grade AI integration platform using the Model Context Protocol (MCP).</li>
-                    <li>Enabled LLM agents (GitHub Copilot) to perform Jira operations via natural language across 22 automated tools.</li>
-                    <li>Implemented multi-user PAT authentication, hardened Docker image, and Kubernetes manifests with Kustomize.</li>
+                    <li>Architected and deployed a production-grade AI integration platform using the Model Context Protocol (MCP)[cite: 3].</li>
+                    <li>Enabled LLM agents (GitHub Copilot) to perform Jira operations via natural language across 22 automated tools[cite: 3].</li>
+                    <li>Implemented multi-user PAT authentication, hardened Docker image, and Kubernetes manifests with Kustomize[cite: 3].</li>
                 </ul>
             </div>
 
             <div class="glass-card project-card reveal" style="transition-delay: 0.2s;">
                 <div class="project-header">
                     <i class="fas fa-server project-icon"></i>
-                    <div class="links"><a href="#"><i class="fab fa-github"></i></a></div>
                 </div>
-                <h3>End-to-End Cloud Architecture</h3>
+                <h3>End-to-End Cloud Architecture</h3><!--[cite: 3]-->
                 <p class="highlight-text">AWS & GitOps Integration</p>
                 <ul class="feature-list small-list">
-                    <li>Provisioned production AWS infrastructure (VPC, EKS, EC2, S3, IAM, Route53) using Terraform.</li>
-                    <li>Containerized workloads with Docker/Kubernetes (EKS); implemented GitOps (ArgoCD) for zero-downtime deployments.</li>
-                    <li>Configured Route53 DNS, Ingress Controllers, and Prometheus/Grafana observability stack.</li>
+                    <li>Provisioned production AWS infrastructure (VPC, EKS, EC2, S3, IAM, Route53) using Terraform[cite: 3].</li>
+                    <li>Containerized workloads with Docker/Kubernetes (EKS); implemented GitOps (ArgoCD) for zero-downtime deployments[cite: 3].</li>
+                    <li>Configured Route53 DNS, Ingress Controllers, and Prometheus/Grafana observability stack[cite: 3].</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Link to external JS -->
     <script src="script.js"></script>
 </body>
 </html>
