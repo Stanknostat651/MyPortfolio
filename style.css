@@ -24,7 +24,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Single Screen Lock */
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
@@ -93,11 +92,10 @@ body {
     box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.02);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     overflow-y: auto; 
 }
 
-/* Fade-in Animation for Dynamic Content */
+/* Fade-in Animation */
 .fade-in { animation: fadeSlideIn 0.4s ease forwards; }
 @keyframes fadeSlideIn {
     0% { opacity: 0; transform: translateX(-20px); }
@@ -185,37 +183,32 @@ body {
 }
 .center-profile img { width: 100%; height: 100%; object-fit: cover; }
 
-/* The Rotating Ring */
 .orbit-track {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     border-radius: 50%;
-    border: 1px dashed rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.1);
     animation: spin 30s linear infinite;
 }
 
-/* HOVER PAUSE EFFECT */
-.orbit-wrapper:hover .orbit-track,
-.orbit-wrapper:hover .icon-box {
-    animation-play-state: paused !important;
-}
+/* Hover Pauses Track & Icons */
+.orbit-wrapper:hover .orbit-track { animation-play-state: paused; }
+.orbit-wrapper:hover .icon-box { animation-play-state: paused; }
 
-/* Orbital Nodes Formatting */
 .node {
     position: absolute;
     width: 60px; height: 60px;
     margin-top: -30px; margin-left: -30px;
 }
 
-/* Exact Geometry */
+/* Perfect Geometry for 440px Circle */
 .node-1 { top: 0px; left: 220px; }
 .node-2 { top: 152px; left: 429px; }
 .node-3 { top: 398px; left: 349px; }
 .node-4 { top: 398px; left: 91px; }
 .node-5 { top: 152px; left: 11px; }
 
-/* Clickable Icons */
 .icon-box {
     width: 100%; height: 100%;
     border-radius: 50%;
@@ -232,14 +225,12 @@ body {
     box-shadow: 0 0 30px #fff;
 }
 
-/* Icon Colors */
 .aws { background: var(--c-aws); }
 .docker { background: var(--c-docker); }
 .python { background: var(--c-python); }
 .linux { background: var(--c-linux); }
 .k8s { background: var(--c-k8s); }
 
-/* Prevent i tag from stealing the click event */
 .icon-box i { pointer-events: none; }
 
 @keyframes spin { 100% { transform: rotate(360deg); } }
