@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 DevOps / SRE Engineer with hands-on experience in Site Reliability Engineering, DevSecOps, AIOps, and cloud infrastructure. Proven track record of reducing patching time by 75% and accelerating deployments by 50%+.
             </p>
             <div class="social-tray">
-                <a href="https://linkedin.com/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="mailto:hemanthkumarb651@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+917674833609" class="social-icon"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:hemanthkumarb651@gmail.com" class="social-icon" aria-label="Send email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+917674833609" class="social-icon" aria-label="Call phone"><i class="fas fa-phone-alt"></i></a>
             </div>
             <div style="display: flex; gap: 20px; align-items: center;">
-                <a href="#" data-target="projects" class="btn-primary trigger-link">View My Work</a>
+                <a href="#projects" data-target="projects" class="btn-primary trigger-link">View My Work</a>
                 <span style="color: #94a3b8; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: #06b6d4; margin-right: 5px;"></i> Tirupati, India</span>
             </div>
         `,
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>AWS Certified Cloud Practitioner - AWS Cloud Fundamentals and Architecture</li>
                 <li>HashiCorp Certified: Terraform Associate</li>
             </ul>
-            <a href="#" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
+            <a href="#home" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
         `,
         docker: `
             <h2 class="view-title" style="color: #2496ed;"><i class="fab fa-docker"></i> Containerization</h2>
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>Hardened Docker images (non-root, read-only FS, dropped capabilities) for DevSecOps compliance.</li>
                 <li>Implemented GitOps (ArgoCD) for zero-downtime deployments.</li>
             </ul>
-            <a href="#" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
+            <a href="#home" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
         `,
         python: `
             <h2 class="view-title" style="color: #3776ab;"><i class="fab fa-python"></i> AI & Scripting</h2>
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>Proficient in Python, Bash, and Shell scripting for CI/CD automation.</li>
                 <li>Claude Code Architect Certified.</li>
             </ul>
-            <a href="#" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
+            <a href="#home" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
         `,
         linux: `
             <h2 class="view-title" style="color: #fcc624;"><i class="fab fa-linux"></i> Linux & Security</h2>
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="view-list">
                 <li>Red Hat Certified System Administrator (RHCSA)</li>
             </ul>
-            <a href="#" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
+            <a href="#home" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
         `,
         k8s: `
             <h2 class="view-title" style="color: #326ce5;"><i class="fas fa-dharmachakra"></i> Kubernetes</h2>
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>Secured Kubernetes manifests with Kustomize, health probes, and resource limits.</li>
                 <li>Deployed GitOps workflows with ArgoCD for version-controlled Kubernetes releases.</li>
             </ul>
-            <a href="#" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
+            <a href="#home" data-target="home" class="btn-primary trigger-link" style="margin-top: 1rem;">Back to Profile</a>
         `
     };
 
