@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | DevOps Engineer</title>
+    <title>Hemanth | DevOps Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=11.0">
+    <link rel="stylesheet" href="style.css?v=12.0">
 </head>
 <body>
 
+    <!-- Ambient Backlight Glows -->
     <div class="ambient-light light-blue"></div>
     <div class="ambient-light light-purple"></div>
 
+    <!-- Top Navbar -->
     <nav class="navbar">
-        <div class="logo">DevOps Portfolio</div>
+        <div class="logo">Hemanth's Portfolio</div>
         <ul class="nav-links">
             <li><a href="#" class="nav-item active" data-target="home">Home</a></li>
             <li><a href="#" class="nav-item" data-target="skills">Skills</a></li>
             <li><a href="#" class="nav-item" data-target="experience">Experience</a></li>
             <li><a href="#" class="nav-item" data-target="projects">Projects</a></li>
-            <li><a href="HemanthKumarReddy_Devops.pdf" download class="btn-resume"><i class="fas fa-file-pdf"></i> Resume</a></li>
+            <li><a href="HemanthKumarReddy_Devops_4.pdf" download="Bellam_Hemanth_Kumar_Reddy_Resume.pdf" class="btn-resume"><i class="fas fa-file-pdf"></i> Resume</a></li>
         </ul>
     </nav>
 
+    <!-- Main Dashboard -->
     <main class="dashboard">
         
+        <!-- LEFT PANEL: Dynamic Screen -->
         <div class="left-panel glass-card">
-            <div id="dynamic-content" class="fade-in">
+            <!-- This container now uses CSS transitions, preventing layout collapse -->
+            <div id="dynamic-content">
+                <!-- Initial Home Load -->
                 <p class="greeting">Hi, I'm</p>
-                <h1 class="name">Kumara Subramanyam<br>Reddy Byreddy</h1>
+                <h1 class="name">Bellam Hemanth<br>Kumar Reddy</h1>
                 <h2 class="role">DevOps Engineer | SRE | DevSecOps</h2>
                 <p class="summary">
                     DevOps / SRE Engineer with hands-on experience in Site Reliability Engineering, DevSecOps, AIOps, and cloud infrastructure. Proven track record of reducing patching time by 75% and accelerating deployments by 50%+.
@@ -37,23 +43,26 @@
                 <div class="social-tray">
                     <a href="https://linkedin.com/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="mailto:subbubyreddy@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+919177961543" class="social-icon"><i class="fas fa-phone-alt"></i></a>
+                    <a href="mailto:hemanthkumarb651@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+917674833609" class="social-icon"><i class="fas fa-phone-alt"></i></a>
                 </div>
                 <div style="display: flex; gap: 20px; align-items: center;">
                     <a href="#" data-target="projects" class="btn-primary trigger-link">View My Work</a>
-                    <span style="color: #94a3b8; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: #06b6d4; margin-right: 5px;"></i> Bengaluru, India</span>
+                    <span style="color: #94a3b8; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: #06b6d4; margin-right: 5px;"></i> Tirupati, India</span>
                 </div>
             </div>
         </div>
 
+        <!-- RIGHT PANEL: Orbital Visual System -->
         <div class="right-panel">
             <div class="orbit-wrapper">
                 
+                <!-- Center Profile -->
                 <div class="center-profile">
                     <img src="https://via.placeholder.com/300x300/1e293b/ffffff?text=Your+Photo" alt="Profile">
                 </div>
 
+                <!-- Rotating Orbit Track -->
                 <div class="orbit-track">
                     <div class="node node-1"><div class="icon-box aws" data-target="aws"><i class="fab fa-aws"></i></div></div>
                     <div class="node node-2"><div class="icon-box docker" data-target="docker"><i class="fab fa-docker"></i></div></div>
@@ -68,6 +77,6 @@
 
     </main>
 
-    <script src="script.js?v=11.0"></script>
+    <script src="script.js?v=12.0"></script>
 </body>
 </html>

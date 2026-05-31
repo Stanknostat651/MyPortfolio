@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const orbitIcons = document.querySelectorAll('.icon-box');
 
     // ==========================================
-    // 1. DATA REPOSITORY 
+    // 1. DATA REPOSITORY (Hemanth's Resume Data)
     // ==========================================
     const portfolioData = {
         home: `
             <p class="greeting">Hi, I'm</p>
-            <h1 class="name">Kumara Subramanyam<br>Reddy Byreddy</h1>
+            <h1 class="name">Bellam Hemanth<br>Kumar Reddy</h1>
             <h2 class="role">DevOps Engineer | SRE | DevSecOps</h2>
             <p class="summary">
                 DevOps / SRE Engineer with hands-on experience in Site Reliability Engineering, DevSecOps, AIOps, and cloud infrastructure. Proven track record of reducing patching time by 75% and accelerating deployments by 50%+.
@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="social-tray">
                 <a href="https://linkedin.com/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="mailto:subbubyreddy@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+919177961543" class="social-icon"><i class="fas fa-phone-alt"></i></a>
+                <a href="mailto:hemanthkumarb651@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+917674833609" class="social-icon"><i class="fas fa-phone-alt"></i></a>
             </div>
             <div style="display: flex; gap: 20px; align-items: center;">
                 <a href="#" data-target="projects" class="btn-primary trigger-link">View My Work</a>
-                <span style="color: #94a3b8; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: #06b6d4; margin-right: 5px;"></i> Bengaluru, India</span>
+                <span style="color: #94a3b8; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: #06b6d4; margin-right: 5px;"></i> Tirupati, India</span>
             </div>
         `,
         skills: `
@@ -140,25 +140,25 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ==========================================
-    // 2. VIEW ENGINE
+    // 2. STABLE VIEW ENGINE (Smooth Cross-Fade)
     // ==========================================
     function updateContent(targetKey) {
         if (!portfolioData[targetKey] || !dynamicContent) return;
 
-        // Strip the fade-in class to reset the animation
-        dynamicContent.classList.remove('fade-in');
+        // Fade Out
+        dynamicContent.style.opacity = '0';
+        dynamicContent.style.transform = 'translateX(-10px)';
         
-        // Force browser reflow to restart animation
-        void dynamicContent.offsetWidth; 
-        
-        // Inject new HTML
-        dynamicContent.innerHTML = portfolioData[targetKey];
-        
-        // Add fade-in class back to trigger CSS animation
-        dynamicContent.classList.add('fade-in');
-        
-        // Bind any newly created internal links (like the Back button)
-        bindInternalLinks();
+        setTimeout(() => {
+            // Update HTML while invisible
+            dynamicContent.innerHTML = portfolioData[targetKey];
+            
+            // Fade In
+            dynamicContent.style.opacity = '1';
+            dynamicContent.style.transform = 'translateX(0)';
+            
+            bindInternalLinks();
+        }, 300); // 300ms delay perfectly matches CSS transition time
     }
 
     function updateNavActive(targetKey) {
@@ -183,26 +183,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 3. LISTENERS
+    // 3. EVENT LISTENERS
     // ==========================================
     navItems.forEach(item => {
-        item.addEventListener('click', (e) => {
+        item.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = item.getAttribute('data-target');
+            const target = this.getAttribute('data-target');
             updateContent(target);
             updateNavActive(target);
         });
     });
 
     orbitIcons.forEach(icon => {
-        icon.addEventListener('click', () => {
-            const target = icon.getAttribute('data-target');
+        icon.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
             updateContent(target);
             // Remove active state from top nav
             navItems.forEach(item => item.classList.remove('active'));
         });
     });
 
-    // Ensure internal links in the pre-loaded Home view work immediately
+    // Bind links for initial load
     bindInternalLinks();
 });
